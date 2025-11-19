@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "flag-icon-css": "^4.1.7",
+    "soquetic": "^1.4.2"
+  }
+}
