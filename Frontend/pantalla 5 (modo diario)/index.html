@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modo Diario</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+  <h1>MODO DIARIO</h1>  
+  <div class="menu-container">
+    <div class="menu-icon">☰</div>  
+    <ul class="menu-options">
+      <li><a href="../home/index.html">Inicio</a></li>
+      <li><a href="../pantalla%205%20(modo%20diario)/index.html">Modo diario</a></li>
+      <li><a href="../pantalla%204%20(higher%20lower)/index.html">Mayor o Menor</a></li>
+      <li><a href="../pantalla%203%20(juego%20bloques)/index.html">Modo Detective</a></li>
+      <li><a href="../pantalla%206%20(login)/index.html">Login</a></li>
+      <li><a href="../pantalla%207%20(registro)/index.html">Registro</a></li>
+      <li><a href="../cuenta/index.html">Cuenta</a></li>
+    </ul>
+  </div>
+  <div class="contenedorInput">
+    <input id="input" type="text" placeholder="Escribe un pais...">
+    <button id="enviar">Adivinar</button>
+  </div>
+
+
+<div class="contenedores">
+  <div id="intentosContainer">
+    <h3>Intentos</h3>
+    <div id="listaIntentos"></div>
+  </div>
+
+  <div id="pistasContainer">
+    <h3>Pistas</h3>
+    <div id="listaPistas"></div>
+  </div>
+</div>
+
+ 
+ 
+
+
+  <div id="popup" class="popup">
+    <div class="popup-content-ayuda">
+      <h2>¡Adivinaste el país!</h2>
+      <p id="cantidaddeintentosDOM"></p>
+      <button id="btn-ok">VOLVER</button>
+    </div>
+  </div>
+
+
+
+
+
+<div class="logo">
+  <img src="/Frontend/pantalla 5 (modo diario)/Vector (1).png" alt="Logo">
+</div>
+   
+<div id="cuentaBtn" class="cuenta">
+  <img src="/Frontend/pantalla 5 (modo diario)/mdi_account.png" alt="Cuenta">
+</div>
+
+<div class="ayuda">
+  <img src="/Frontend/home/ph_question-fill.png" alt="Cómo jugar">
+</div>
+
+
+<div id="popupAyuda" class="popup10">
+
+    <div class="popup-content">
+      <span class="cerrar">&times;</span>
+      <h2>CÓMO JUGAR</h2>
+      <h3>Modo Diario</h3>
+      <p>
+        Tu objetivo es adivinar el país diario con la menor cantidad de pistas. Las pistas son infinitas y se van acumulando en la sección de pistas. Los países intentados se acumulan en los intentos.
+      </p>
+       </div>
+  </div>
+
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
+
+

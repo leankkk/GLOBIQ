@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlobiQ - Cuenta</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
+</head>
+
+<body>
+  <div class="logo">
+    <img src="../Vector.png">
+</div>
+  <div class="menu-container">
+    <div class="menu-icon">☰</div>  
+    <ul class="menu-options">
+      <li><a href="../home/index.html">Inicio</a></li>
+      <li><a href="../pantalla%205%20(modo%20diario)/index.html">Modo diario</a></li>
+      <li><a href="../pantalla%204%20(higher%20lower)/index.html">Higher or lower</a></li>
+      <li><a href="../pantalla%203%20(juego%20bloques)/index.html">Modo Detective</a></li>
+      <li><a href="../pantalla%206%20(login)/index.html">Login</a></li>
+      <li><a href="../pantalla%207%20(registro)/index.html">Registro</a></li>
+      <li><a href="../cuenta/index.html">Cuenta</a></li>
+    </ul>
+  </div>
+
+  <div class="stats-container">
+    <h1 class="titulo">Usuario: <span id="nombreUsuario">...</span></h1>
+
+    <div class="cards-container" id="cardsContainer">
+      <div class="card">
+        <h2>Modo Diario</h2>
+        <ul id="listaDiario">
+        </ul>
+        <div class="stats" id="statsDiario"></div>
+      </div>
+
+      <div class="card">
+        <h2>Mayor o Menor</h2>
+        <ul id="listaMayorMenor"></ul>
+        <div class="stats" id="statsHL"></div>
+      </div>
+
+      <div class="card">
+        <h2>Adiviname</h2>
+        <ul id="listaBloques"></ul>
+        <div class="stats" id="statsBloques"></div>
+      </div>
+    </div>
+  </div>
+  
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1868 @@
+{
+  "Sin usuario": {
+    "nombre": "Sin usuario",
+    "contraseña": "",
+    "stats": {
+      "diario": {
+        "puntaje": 2,
+        "rondasGanadas": 5,
+        "promedioPuntajes": 6,
+        "listaPuntajes": [
+          8,
+          8,
+          7,
+          2,
+          5
+        ],
+        "intentosHechos": 26
+      },
+      "mayormenor": {
+        "racha": 14,
+        "rondasJugadas": 24,
+        "promedioRachas": 3.0416666666666665,
+        "listaRachas": [
+          3,
+          2,
+          10,
+          2,
+          1,
+          1,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          3,
+          4,
+          4,
+          1,
+          4,
+          5,
+          1,
+          2,
+          2,
+          2,
+          3,
+          14
+        ],
+        "categoriasAcertadas": [
+          {
+            "dato": "economy.household_income_by_percentage_share.highest_ten_percent",
+            "cantidad": 4,
+            "label": "Ingreso hogares 10% más alto"
+          },
+          {
+            "dato": "economy.inflation_rate.global_rank",
+            "cantidad": 6,
+            "label": "Inflación posición mundial"
+          },
+          {
+            "dato": "communications.internet.users.total",
+            "cantidad": 4,
+            "label": "Internet usuarios totales"
+          },
+          {
+            "dato": "transportation.air_transport.airports.unpaved.1524_to_2437_metres",
+            "cantidad": 5,
+            "label": "Aeropuertos no pavimentados 1524 a 2437 m"
+          },
+          {
+            "dato": "people.hospital_bed_density.beds_per_1000_population",
+            "cantidad": 1,
+            "label": "Camas hospitalarias"
+          },
+          {
+            "dato": "energy.electricity.access.total_electrification.value",
+            "cantidad": 2,
+            "label": "Electricidad acceso total valor"
+          },
+          {
+            "dato": "energy.electricity.exports.kWh",
+            "cantidad": 1,
+            "label": "Exportaciones electricidad kWh"
+          },
+          {
+            "dato": "people.life_expectancy_at_birth.male.value",
+            "cantidad": 1,
+            "label": "Esperanza de vida para hombres"
+          },
+          {
+            "dato": "economy.gdp.real_growth_rate.annual_values[2].value",
+            "cantidad": 2,
+            "label": "Porcentaje de crecimiento anual del PIB"
+          },
+          {
+            "dato": "energy.electricity.consumption.kWh",
+            "cantidad": 2,
+            "label": "Consumo electricidad kWh"
+          },
+          {
+            "dato": "energy.electricity.installed_generating_capacity.kW",
+            "cantidad": 2,
+            "label": "Capacidad instalada electricidad kW"
+          },
+          {
+            "dato": "people.literacy.female.value",
+            "cantidad": 1,
+            "label": "Porcentaje de alfabetismo en mujeres"
+          },
+          {
+            "dato": "energy.electricity.installed_generating_capacity.global_rank",
+            "cantidad": 1,
+            "label": "Capacidad instalada electricidad posición mundial"
+          },
+          {
+            "dato": "transportation.roadways.paved.value",
+            "cantidad": 1,
+            "label": "Carreteras pavimentadas valor"
+          },
+          {
+            "dato": "people.school_life_expectancy.total.value",
+            "cantidad": 5,
+            "label": "Esperanza escolar total"
+          },
+          {
+            "dato": "people.infant_mortality_rate.male.value",
+            "cantidad": 4,
+            "label": "Mortalidad infantil en hombres"
+          },
+          {
+            "dato": "economy.gdp.real_growth_rate.annual_values[0].value",
+            "cantidad": 4,
+            "label": "Porcentaje de crecimiento anual del PIB"
+          },
+          {
+            "dato": "transportation.air_transport.airports.paved.2438_to_3047_metres",
+            "cantidad": 1,
+            "label": "Aeropuertos pavimentados 2438 a 3047 m"
+          },
+          {
+            "dato": "people.age_structure.25_to_54.males",
+            "cantidad": 4,
+            "label": "Porcentaje de población de 25 a 54 años en hombres"
+          },
+          {
+            "dato": "geography.elevation.highest_point.elevation.value",
+            "cantidad": 1,
+            "label": "Elevación máxima"
+          },
+          {
+            "dato": "people.birth_rate.global_rank",
+            "cantidad": 1,
+            "label": "Puesto mundial en natalidad"
+          },
+          {
+            "dato": "transportation.air_transport.airports.paved.914_to_1523_metres",
+            "cantidad": 2,
+            "label": "Aeropuertos pavimentados 914 a 1523 m"
+          },
+          {
+            "dato": "economy.population_below_poverty_line.value",
+            "cantidad": 2,
+            "label": "Porcentaje de población bajo la línea de pobreza"
+          },
+          {
+            "dato": "economy.inflation_rate.annual_values",
+            "cantidad": 2,
+            "label": "Inflación anual"
+          },
+          {
+            "dato": "transportation.air_transport.airports.paved.total",
+            "cantidad": 3,
+            "label": "Aeropuertos pavimentados total"
+          },
+          {
+            "dato": "people.sex_ratio.by_age.at_birth.value",
+            "cantidad": 4,
+            "label": "Ratio de sexos al nacer"
+          },
+          {
+            "dato": "transportation.roadways.unpaved.value",
+            "cantidad": 5,
+            "label": "Carreteras sin pavimentar valor"
+          },
+          {
+            "dato": "energy.electricity.by_source.nuclear_fuels.percent",
+            "cantidad": 5,
+            "label": "Electricidad fuentes nucleares %"
+          }
+        ],
+        "paisesAcertados": [
+          {
+            "pais": "slovenia",
+            "cantidad": 1,
+            "label": "Eslovenia"
+          },
+          {
+            "pais": "belgium",
+            "cantidad": 1,
+            "label": "Bélgica"
+          },
+          {
+            "pais": "sudan",
+            "cantidad": 1,
+            "label": "Sudán"
+          },
+          {
+            "pais": "bhutan",
+            "cantidad": 1,
+            "label": "Bután"
+          },
+          {
+            "pais": "spain",
+            "cantidad": 2,
+            "label": "España"
+          },
+          {
+            "pais": "germany",
+            "cantidad": 3,
+            "label": "Alemania"
+          },
+          {
+            "pais": "belize",
+            "cantidad": 4,
+            "label": "Belice"
+          },
+          {
+            "pais": "malawi",
+            "cantidad": 2,
+            "label": "Malawi"
+          },
+          {
+            "pais": "united_kingdom",
+            "cantidad": 1,
+            "label": "Reino Unido"
+          },
+          {
+            "pais": "zimbabwe",
+            "cantidad": 1,
+            "label": "Zimbabue"
+          },
+          {
+            "pais": "uganda",
+            "cantidad": 1,
+            "label": "Uganda"
+          },
+          {
+            "pais": "ghana",
+            "cantidad": 1,
+            "label": "Ghana"
+          },
+          {
+            "pais": "el_salvador",
+            "cantidad": 1,
+            "label": "El Salvador"
+          },
+          {
+            "pais": "malta",
+            "cantidad": 1,
+            "label": "Malta"
+          },
+          {
+            "pais": "tuvalu",
+            "cantidad": 1,
+            "label": "Tuvalu"
+          },
+          {
+            "pais": "norway",
+            "cantidad": 1,
+            "label": "Noruega"
+          },
+          {
+            "pais": "syria",
+            "cantidad": 2,
+            "label": "Siria"
+          },
+          {
+            "pais": "korea_south",
+            "cantidad": 1,
+            "label": "Corea del Sur"
+          },
+          {
+            "pais": "switzerland",
+            "cantidad": 2,
+            "label": "Suiza"
+          },
+          {
+            "pais": "chile",
+            "cantidad": 1,
+            "label": "Chile"
+          },
+          {
+            "pais": "qatar",
+            "cantidad": 2,
+            "label": "Catar"
+          },
+          {
+            "pais": "zambia",
+            "cantidad": 1,
+            "label": "Zambia"
+          },
+          {
+            "pais": "burkina_faso",
+            "cantidad": 2,
+            "label": "Burkina Faso"
+          },
+          {
+            "pais": "dominican_republic",
+            "cantidad": 3,
+            "label": "República Dominicana"
+          },
+          {
+            "pais": "grenada",
+            "cantidad": 1,
+            "label": "Granada"
+          },
+          {
+            "pais": "mali",
+            "cantidad": 1,
+            "label": "Malí"
+          },
+          {
+            "pais": "venezuela",
+            "cantidad": 3,
+            "label": "Venezuela"
+          },
+          {
+            "pais": "jordan",
+            "cantidad": 1,
+            "label": "Jordania"
+          },
+          {
+            "pais": "ireland",
+            "cantidad": 1,
+            "label": "Irlanda"
+          },
+          {
+            "pais": "kuwait",
+            "cantidad": 2,
+            "label": "Kuwait"
+          },
+          {
+            "pais": "hungary",
+            "cantidad": 1,
+            "label": "Hungría"
+          },
+          {
+            "pais": "ethiopia",
+            "cantidad": 1,
+            "label": "Etiopía"
+          },
+          {
+            "pais": "korea_north",
+            "cantidad": 1,
+            "label": "Corea del Norte"
+          },
+          {
+            "pais": "india",
+            "cantidad": 3,
+            "label": "India"
+          },
+          {
+            "pais": "liechtenstein",
+            "cantidad": 1,
+            "label": "Liechtenstein"
+          },
+          {
+            "pais": "vanuatu",
+            "cantidad": 2,
+            "label": "Vanuatu"
+          },
+          {
+            "pais": "ukraine",
+            "cantidad": 1,
+            "label": "Ucrania"
+          },
+          {
+            "pais": "austria",
+            "cantidad": 3,
+            "label": "Austria"
+          },
+          {
+            "pais": "moldova",
+            "cantidad": 1,
+            "label": "Moldavia"
+          },
+          {
+            "pais": "australia",
+            "cantidad": 1,
+            "label": "Australia"
+          },
+          {
+            "pais": "new_zealand",
+            "cantidad": 2,
+            "label": "Nueva Zelanda"
+          },
+          {
+            "pais": "kenya",
+            "cantidad": 1,
+            "label": "Kenia"
+          },
+          {
+            "pais": "poland",
+            "cantidad": 1,
+            "label": "Polonia"
+          },
+          {
+            "pais": "bahamas_the",
+            "cantidad": 1,
+            "label": "Bahamas"
+          },
+          {
+            "pais": "ecuador",
+            "cantidad": 1,
+            "label": "Ecuador"
+          },
+          {
+            "pais": "uzbekistan",
+            "cantidad": 1,
+            "label": "Uzbekistán"
+          },
+          {
+            "pais": "turkmenistan",
+            "cantidad": 1,
+            "label": "Turkmenistán"
+          },
+          {
+            "pais": "latvia",
+            "cantidad": 1,
+            "label": "Letonia"
+          },
+          {
+            "pais": "iran",
+            "cantidad": 1,
+            "label": "Irán"
+          },
+          {
+            "pais": "jamaica",
+            "cantidad": 1,
+            "label": "Jamaica"
+          },
+          {
+            "pais": "bolivia",
+            "cantidad": 1,
+            "label": "Bolivia"
+          },
+          {
+            "pais": "belarus",
+            "cantidad": 1,
+            "label": "Bielorrusia"
+          },
+          {
+            "pais": "vietnam",
+            "cantidad": 1,
+            "label": "Vietnam"
+          },
+          {
+            "pais": "central_african_republic",
+            "cantidad": 1,
+            "label": "República Centroafricana"
+          },
+          {
+            "pais": "egypt",
+            "cantidad": 1,
+            "label": "Egipto"
+          },
+          {
+            "pais": "congo_republic_of_the",
+            "cantidad": 1,
+            "label": "República del Congo"
+          },
+          {
+            "pais": "afghanistan",
+            "cantidad": 1,
+            "label": "Afganistán"
+          },
+          {
+            "pais": "canada",
+            "cantidad": 1,
+            "label": "Canadá"
+          },
+          {
+            "pais": "north_macedonia",
+            "cantidad": 1,
+            "label": "Macedonia del Norte"
+          },
+          {
+            "pais": "united_states",
+            "cantidad": 1,
+            "label": "Estados Unidos"
+          },
+          {
+            "pais": "malaysia",
+            "cantidad": 1,
+            "label": "Malasia"
+          },
+          {
+            "pais": "togo",
+            "cantidad": 1,
+            "label": "Togo"
+          },
+          {
+            "pais": "peru",
+            "cantidad": 1,
+            "label": "Perú"
+          }
+        ],
+        "categoriaMasAcertada": {
+          "dato": "economy.inflation_rate.global_rank",
+          "cantidad": 6,
+          "label": "Inflación posición mundial"
+        },
+        "paisMasAcertado": {
+          "pais": "venezuela",
+          "cantidad": 3,
+          "label": "Venezuela"
+        },
+        "comparacionesHechas": 76
+      },
+      "bloques": {
+        "puntaje": 8,
+        "rondasGanadas": 8,
+        "promedioPuntajes": 38.625,
+        "listaPuntajes": [
+          47,
+          51,
+          27,
+          43,
+          47,
+          48,
+          8,
+          38
+        ],
+        "categoriasPreguntadas": {
+          "dato": "PIB crecimiento real posición mundial",
+          "cantidad": 4
+        },
+        "valoresPreguntados": [
+          {
+            "valor": 5,
+            "cantidad": 38
+          }
+        ],
+        "listaValoresPreguntados": [
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          49,
+          50,
+          30,
+          60,
+          55,
+          1,
+          0,
+          6,
+          50,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 309
+      }
+    }
+  },
+  "usuariotest": {
+    "nombre": "usuariotest",
+    "contraseña": "testeando",
+    "stats": {
+      "diario": {
+        "puntaje": 4,
+        "rondasGanadas": 1,
+        "promedioPuntajes": 4,
+        "listaPuntajes": [
+          4
+        ],
+        "intentosHechos": 0
+      },
+      "mayormenor": {
+        "racha": 0,
+        "rondasJugadas": 0,
+        "promedioRachas": null,
+        "listaRachas": [],
+        "categoriasAcertadas": [],
+        "paisesAcertados": [],
+        "categoriaMasAcertada": {},
+        "paisMasAcertado": {},
+        "comparacionesHechas": 0
+      },
+      "bloques": {
+        "puntaje": null,
+        "rondasGanadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "categoriasPreguntadas": [],
+        "valoresPreguntados": [],
+        "listaValoresPreguntados": [],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 0
+      }
+    }
+  },
+  "joaco": {
+    "nombre": "joaco",
+    "contraseña": "luciocrack",
+    "stats": {
+      "diario": {
+        "puntaje": null,
+        "rondasGanadas": 0,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "intentosHechos": 0
+      },
+      "mayormenor": {
+        "racha": 0,
+        "rondasJugadas": 0,
+        "promedioRachas": null,
+        "listaRachas": [],
+        "categoriasAcertadas": [],
+        "paisesAcertados": [],
+        "categoriaMasAcertada": {},
+        "paisMasAcertado": {},
+        "comparacionesHechas": 0
+      },
+      "bloques": {
+        "puntaje": null,
+        "rondasGanadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "categoriasPreguntadas": [],
+        "valoresPreguntados": [],
+        "listaValoresPreguntados": [],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 0
+      }
+    }
+  },
+  "Lucio Camde": {
+    "nombre": "Lucio Camde",
+    "contraseña": "LLL",
+    "stats": {
+      "diario": {
+        "puntaje": 8,
+        "rondasGanadas": 2,
+        "promedioPuntajes": 8,
+        "listaPuntajes": [
+          8,
+          8
+        ],
+        "intentosHechos": 9
+      },
+      "mayormenor": {
+        "racha": 8,
+        "rondasJugadas": 3,
+        "promedioRachas": 5,
+        "listaRachas": [
+          8,
+          1,
+          6
+        ],
+        "categoriasAcertadas": [
+          {
+            "dato": "transportation.air_transport.airports.paved.total",
+            "cantidad": 4,
+            "label": "Aeropuertos pavimentados total"
+          },
+          {
+            "dato": "communications.telephones.fixed_lines.subscriptions_per_one_hundred_inhabitants",
+            "cantidad": 4,
+            "label": "Telefonía fija suscripciones por 100 habitantes"
+          },
+          {
+            "dato": "economy.labor_force.by_occupation.occupation.industry",
+            "cantidad": 1,
+            "label": "Fuerza laboral industria"
+          },
+          {
+            "dato": "people.drinking_water_source.unimproved.urban.value",
+            "cantidad": 4,
+            "label": "Porcentaje de agua no potable urbana"
+          },
+          {
+            "dato": "people.sex_ratio.by_age.55_to_64_years.value",
+            "cantidad": 2,
+            "label": "Ratio de sexos para 55-64 años"
+          }
+        ],
+        "paisesAcertados": [
+          {
+            "pais": "luxembourg",
+            "cantidad": 1,
+            "label": "Luxemburgo"
+          },
+          {
+            "pais": "mongolia",
+            "cantidad": 1,
+            "label": "Mongolia"
+          },
+          {
+            "pais": "iran",
+            "cantidad": 1,
+            "label": "Irán"
+          },
+          {
+            "pais": "united_states",
+            "cantidad": 1,
+            "label": "Estados Unidos"
+          },
+          {
+            "pais": "bhutan",
+            "cantidad": 1,
+            "label": "Bután"
+          },
+          {
+            "pais": "iraq",
+            "cantidad": 1,
+            "label": "Irak"
+          },
+          {
+            "pais": "japan",
+            "cantidad": 1,
+            "label": "Japón"
+          },
+          {
+            "pais": "malaysia",
+            "cantidad": 1,
+            "label": "Malasia"
+          },
+          {
+            "pais": "cyprus",
+            "cantidad": 1,
+            "label": "Chipre"
+          },
+          {
+            "pais": "belgium",
+            "cantidad": 1,
+            "label": "Bélgica"
+          },
+          {
+            "pais": "ireland",
+            "cantidad": 1,
+            "label": "Irlanda"
+          },
+          {
+            "pais": "cuba",
+            "cantidad": 1,
+            "label": "Cuba"
+          },
+          {
+            "pais": "greece",
+            "cantidad": 1,
+            "label": "Grecia"
+          },
+          {
+            "pais": "slovenia",
+            "cantidad": 1,
+            "label": "Eslovenia"
+          },
+          {
+            "pais": "nigeria",
+            "cantidad": 1,
+            "label": "Nigeria"
+          }
+        ],
+        "categoriaMasAcertada": {
+          "dato": "transportation.air_transport.airports.paved.total",
+          "cantidad": 4,
+          "label": "Aeropuertos pavimentados total"
+        },
+        "paisMasAcertado": {
+          "pais": "luxembourg",
+          "cantidad": 1,
+          "label": "Luxemburgo"
+        },
+        "comparacionesHechas": 9
+      },
+      "bloques": {
+        "puntaje": 25,
+        "rondasGanadas": 2,
+        "promedioPuntajes": 28.5,
+        "listaPuntajes": [
+          25,
+          32
+        ],
+        "categoriasPreguntadas": {
+          "dato": "Rango mundial de población",
+          "cantidad": 4
+        },
+        "valoresPreguntados": [
+          {
+            "valor": 50,
+            "cantidad": 32
+          }
+        ],
+        "listaValoresPreguntados": [
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50,
+          50
+        ],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 57
+      }
+    }
+  },
+  "ramalan": {
+    "nombre": "ramalan",
+    "contraseña": "1234",
+    "stats": {
+      "diario": {
+        "puntaje": null,
+        "rondasGanadas": 0,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "intentosHechos": 0
+      },
+      "mayormenor": {
+        "racha": 7,
+        "rondasJugadas": 14,
+        "promedioRachas": 3.142857142857143,
+        "listaRachas": [
+          3,
+          3,
+          4,
+          1,
+          4,
+          3,
+          3,
+          2,
+          3,
+          4,
+          1,
+          1,
+          7,
+          5
+        ],
+        "categoriasAcertadas": [
+          {
+            "dato": "people.drinking_water_source.improved.urban.value",
+            "cantidad": 3,
+            "label": "Porcentaje de agua potable mejorada urbana"
+          },
+          {
+            "dato": "people.median_age.male.value",
+            "cantidad": 6,
+            "label": "Edad media en hombres"
+          },
+          {
+            "dato": "energy.crude_oil.exports.bbl_per_day",
+            "cantidad": 4,
+            "label": "Exportaciones petróleo crudo barriles por día"
+          },
+          {
+            "dato": "economy.gdp.real_growth_rate.annual_values[0].value",
+            "cantidad": 1,
+            "label": "Porcentaje de crecimiento anual del PIB"
+          },
+          {
+            "dato": "economy.gdp.composition.by_sector_of_origin.sectors.agriculture",
+            "cantidad": 4,
+            "label": "Porcentaje del PIB proveniente de agricultura"
+          },
+          {
+            "dato": "transportation.air_transport.airports.total.global_rank",
+            "cantidad": 4,
+            "label": "Aeropuertos posición mundial"
+          },
+          {
+            "dato": "energy.electricity.by_source.hydroelectric_plants.percent",
+            "cantidad": 3,
+            "label": "Electricidad fuentes hidroeléctricas %"
+          },
+          {
+            "dato": "energy.electricity.imports.global_rank",
+            "cantidad": 2,
+            "label": "Importaciones electricidad posición mundial"
+          },
+          {
+            "dato": "economy.unemployment_rate.global_rank",
+            "cantidad": 3,
+            "label": "Puesto mundial en desempleo"
+          },
+          {
+            "dato": "geography.land_use.by_sector.permanent_crops.value",
+            "cantidad": 4,
+            "label": "Porcentaje de cultivos permanentes"
+          },
+          {
+            "dato": "people.school_life_expectancy.male.value",
+            "cantidad": 1,
+            "label": "Esperanza escolar para hombres"
+          },
+          {
+            "dato": "people.literacy.female.value",
+            "cantidad": 4,
+            "label": "Porcentaje de alfabetismo en mujeres"
+          },
+          {
+            "dato": "geography.area.global_rank",
+            "cantidad": 4,
+            "label": "Puesto mundial en área"
+          },
+          {
+            "dato": "people.maternal_mortality_rate.global_rank",
+            "cantidad": 1,
+            "label": "Puesto mundial en mortalidad materna"
+          }
+        ],
+        "paisesAcertados": [
+          {
+            "pais": "estonia",
+            "cantidad": 1,
+            "label": "Estonia"
+          },
+          {
+            "pais": "iceland",
+            "cantidad": 1,
+            "label": "Islandia"
+          },
+          {
+            "pais": "congo_republic_of_the",
+            "cantidad": 1,
+            "label": "República del Congo"
+          },
+          {
+            "pais": "bahamas_the",
+            "cantidad": 1,
+            "label": "Bahamas"
+          },
+          {
+            "pais": "moldova",
+            "cantidad": 2,
+            "label": "Moldavia"
+          },
+          {
+            "pais": "cameroon",
+            "cantidad": 1,
+            "label": "Camerún"
+          },
+          {
+            "pais": "haiti",
+            "cantidad": 1,
+            "label": "Haití"
+          },
+          {
+            "pais": "eswatini",
+            "cantidad": 1,
+            "label": "Eswatini"
+          },
+          {
+            "pais": "brunei",
+            "cantidad": 1,
+            "label": "Brunéi"
+          },
+          {
+            "pais": "egypt",
+            "cantidad": 1,
+            "label": "Egipto"
+          },
+          {
+            "pais": "kuwait",
+            "cantidad": 2,
+            "label": "Kuwait"
+          },
+          {
+            "pais": "czechia",
+            "cantidad": 1,
+            "label": "Chequia"
+          },
+          {
+            "pais": "philippines",
+            "cantidad": 1,
+            "label": "Filipinas"
+          },
+          {
+            "pais": "dominican_republic",
+            "cantidad": 1,
+            "label": "República Dominicana"
+          },
+          {
+            "pais": "ethiopia",
+            "cantidad": 1,
+            "label": "Etiopía"
+          },
+          {
+            "pais": "cuba",
+            "cantidad": 1,
+            "label": "Cuba"
+          },
+          {
+            "pais": "madagascar",
+            "cantidad": 1,
+            "label": "Madagascar"
+          },
+          {
+            "pais": "guatemala",
+            "cantidad": 1,
+            "label": "Guatemala"
+          },
+          {
+            "pais": "spain",
+            "cantidad": 1,
+            "label": "España"
+          },
+          {
+            "pais": "sri_lanka",
+            "cantidad": 1,
+            "label": "Sri Lanka"
+          },
+          {
+            "pais": "saint_vincent_and_the_grenadines",
+            "cantidad": 1,
+            "label": "San Vicente y las Granadinas"
+          },
+          {
+            "pais": "barbados",
+            "cantidad": 1,
+            "label": "Barbados"
+          },
+          {
+            "pais": "chile",
+            "cantidad": 1,
+            "label": "Chile"
+          },
+          {
+            "pais": "belarus",
+            "cantidad": 1,
+            "label": "Bielorrusia"
+          },
+          {
+            "pais": "kyrgyzstan",
+            "cantidad": 1,
+            "label": "Kirguistán"
+          },
+          {
+            "pais": "samoa",
+            "cantidad": 1,
+            "label": "Samoa"
+          },
+          {
+            "pais": "djibouti",
+            "cantidad": 1,
+            "label": "Yibuti"
+          },
+          {
+            "pais": "eritrea",
+            "cantidad": 1,
+            "label": "Eritrea"
+          },
+          {
+            "pais": "slovenia",
+            "cantidad": 1,
+            "label": "Eslovenia"
+          },
+          {
+            "pais": "greece",
+            "cantidad": 1,
+            "label": "Grecia"
+          },
+          {
+            "pais": "germany",
+            "cantidad": 1,
+            "label": "Alemania"
+          },
+          {
+            "pais": "burkina_faso",
+            "cantidad": 1,
+            "label": "Burkina Faso"
+          },
+          {
+            "pais": "indonesia",
+            "cantidad": 1,
+            "label": "Indonesia"
+          },
+          {
+            "pais": "korea_south",
+            "cantidad": 1,
+            "label": "Corea del Sur"
+          },
+          {
+            "pais": "morocco",
+            "cantidad": 1,
+            "label": "Marruecos"
+          },
+          {
+            "pais": "belgium",
+            "cantidad": 2,
+            "label": "Bélgica"
+          },
+          {
+            "pais": "switzerland",
+            "cantidad": 1,
+            "label": "Suiza"
+          },
+          {
+            "pais": "equatorial_guinea",
+            "cantidad": 1,
+            "label": "Guinea Ecuatorial"
+          },
+          {
+            "pais": "colombia",
+            "cantidad": 1,
+            "label": "Colombia"
+          },
+          {
+            "pais": "liberia",
+            "cantidad": 1,
+            "label": "Liberia"
+          },
+          {
+            "pais": "iraq",
+            "cantidad": 1,
+            "label": "Irak"
+          }
+        ],
+        "categoriaMasAcertada": {
+          "dato": "people.median_age.male.value",
+          "cantidad": 6,
+          "label": "Edad media en hombres"
+        },
+        "paisMasAcertado": {
+          "pais": "moldova",
+          "cantidad": 2,
+          "label": "Moldavia"
+        },
+        "comparacionesHechas": 58
+      },
+      "bloques": {
+        "puntaje": null,
+        "rondasGanadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "categoriasPreguntadas": [],
+        "valoresPreguntados": [],
+        "listaValoresPreguntados": [],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 0
+      }
+    }
+  },
+  "anadavid": {
+    "nombre": "anadavid",
+    "contraseña": "davidovich",
+    "stats": {
+      "diario": {
+        "puntaje": 0,
+        "rondasGanadas": 2,
+        "promedioPuntajes": 0.5,
+        "listaPuntajes": [
+          0,
+          1
+        ],
+        "intentosHechos": 3
+      },
+      "mayormenor": {
+        "racha": 0,
+        "rondasJugadas": 0,
+        "promedioRachas": null,
+        "listaRachas": [],
+        "categoriasAcertadas": [],
+        "paisesAcertados": [],
+        "categoriaMasAcertada": {},
+        "paisMasAcertado": {},
+        "comparacionesHechas": 0
+      },
+      "bloques": {
+        "puntaje": null,
+        "rondasGanadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "categoriasPreguntadas": [],
+        "valoresPreguntados": [],
+        "listaValoresPreguntados": [],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 0
+      }
+    }
+  },
+  "m,amsa": {
+    "nombre": "m,amsa",
+    "contraseña": "fff",
+    "stats": {
+      "diario": {
+        "puntaje": null,
+        "rondasGanadas": 0,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "intentosHechos": 0
+      },
+      "mayormenor": {
+        "racha": 0,
+        "rondasJugadas": 0,
+        "promedioRachas": null,
+        "listaRachas": [],
+        "categoriasAcertadas": [],
+        "paisesAcertados": [],
+        "categoriaMasAcertada": {},
+        "paisMasAcertado": {},
+        "comparacionesHechas": 0
+      },
+      "bloques": {
+        "puntaje": null,
+        "rondasGanadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "categoriasPreguntadas": [],
+        "valoresPreguntados": [],
+        "listaValoresPreguntados": [],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 0
+      }
+    }
+  },
+  "lucio": {
+    "nombre": "lucio",
+    "contraseña": "camde",
+    "stats": {
+      "diario": {
+        "puntaje": null,
+        "rondasGanadas": 0,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "intentosHechos": 0
+      },
+      "mayormenor": {
+        "racha": 0,
+        "rondasJugadas": 0,
+        "promedioRachas": null,
+        "listaRachas": [],
+        "categoriasAcertadas": [],
+        "paisesAcertados": [],
+        "categoriaMasAcertada": {},
+        "paisMasAcertado": {},
+        "comparacionesHechas": 0
+      },
+      "bloques": {
+        "puntaje": null,
+        "rondasGanadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "categoriasPreguntadas": [],
+        "valoresPreguntados": [],
+        "listaValoresPreguntados": [],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 0
+      }
+    }
+  },
+  "hpla": {
+    "nombre": "hpla",
+    "contraseña": "sss",
+    "stats": {
+      "diario": {
+        "puntaje": null,
+        "rondasGanadas": 0,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "intentosHechos": 0
+      },
+      "mayormenor": {
+        "racha": 0,
+        "rondasJugadas": 0,
+        "promedioRachas": null,
+        "listaRachas": [],
+        "categoriasAcertadas": [],
+        "paisesAcertados": [],
+        "categoriaMasAcertada": {},
+        "paisMasAcertado": {},
+        "comparacionesHechas": 0
+      },
+      "bloques": {
+        "puntaje": null,
+        "rondasGanadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "categoriasPreguntadas": [],
+        "valoresPreguntados": [],
+        "listaValoresPreguntados": [],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 0
+      }
+    }
+  },
+  "ramalanm9": {
+    "nombre": "ramalanm9",
+    "contraseña": "ss",
+    "stats": {
+      "diario": {
+        "puntaje": null,
+        "rondasGanadas": 0,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "intentosHechos": 0
+      },
+      "mayormenor": {
+        "racha": 0,
+        "rondasJugadas": 0,
+        "promedioRachas": null,
+        "listaRachas": [],
+        "categoriasAcertadas": [],
+        "paisesAcertados": [],
+        "categoriaMasAcertada": {},
+        "paisMasAcertado": {},
+        "comparacionesHechas": 0
+      },
+      "bloques": {
+        "puntaje": null,
+        "rondasGanadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "categoriasPreguntadas": [],
+        "valoresPreguntados": [],
+        "listaValoresPreguntados": [],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 0
+      }
+    }
+  },
+  "martoIUddd": {
+    "nombre": "martoIUddd",
+    "contraseña": "lucioteamo",
+    "stats": {
+      "diario": {
+        "puntaje": null,
+        "rondasGanadas": 0,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "intentosHechos": 0
+      },
+      "mayormenor": {
+        "racha": 2,
+        "rondasJugadas": 2,
+        "promedioRachas": 1.5,
+        "listaRachas": [
+          1,
+          2
+        ],
+        "categoriasAcertadas": [
+          {
+            "dato": "energy.electricity.access.total_electrification.value",
+            "cantidad": 1,
+            "label": "Electricidad acceso total valor"
+          },
+          {
+            "dato": "economy.budget_surplus_or_deficit.percent_of_gdp",
+            "cantidad": 2,
+            "label": "Superávit o déficit fiscal en porcentaje del PIB"
+          }
+        ],
+        "paisesAcertados": [
+          {
+            "pais": "senegal",
+            "cantidad": 1,
+            "label": "Senegal"
+          },
+          {
+            "pais": "turkmenistan",
+            "cantidad": 1,
+            "label": "Turkmenistán"
+          },
+          {
+            "pais": "luxembourg",
+            "cantidad": 1,
+            "label": "Luxemburgo"
+          }
+        ],
+        "categoriaMasAcertada": {
+          "dato": "economy.budget_surplus_or_deficit.percent_of_gdp",
+          "cantidad": 2,
+          "label": "Superávit o déficit fiscal en porcentaje del PIB"
+        },
+        "paisMasAcertado": {
+          "pais": "senegal",
+          "cantidad": 1,
+          "label": "Senegal"
+        },
+        "comparacionesHechas": 5
+      },
+      "bloques": {
+        "puntaje": null,
+        "rondasGanadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "categoriasPreguntadas": [],
+        "valoresPreguntados": [],
+        "listaValoresPreguntados": [],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 0
+      }
+    }
+  },
+  "flafymarcozzi": {
+    "nombre": "flafymarcozzi",
+    "contraseña": "globe-inc",
+    "stats": {
+      "diario": {
+        "puntaje": null,
+        "rondasGanadas": 0,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "intentosHechos": 0
+      },
+      "mayormenor": {
+        "racha": 13,
+        "rondasJugadas": 10,
+        "promedioRachas": 3.3,
+        "listaRachas": [
+          1,
+          1,
+          13,
+          4,
+          2,
+          1,
+          1,
+          2,
+          1,
+          7
+        ],
+        "categoriasAcertadas": [
+          {
+            "dato": "economy.exports.total_value.global_rank",
+            "cantidad": 1,
+            "label": "Exportaciones posición mundial"
+          },
+          {
+            "dato": "energy.refined_petroleum_products.production.global_rank",
+            "cantidad": 1,
+            "label": "Producción derivados petróleo posición mundial"
+          },
+          {
+            "dato": "energy.electricity.by_source.nuclear_fuels.percent",
+            "cantidad": 4,
+            "label": "Electricidad fuentes nucleares %"
+          },
+          {
+            "dato": "transportation.air_transport.airports.unpaved.2438_to_3047_metres",
+            "cantidad": 5,
+            "label": "Aeropuertos no pavimentados 2438 a 3047 m"
+          },
+          {
+            "dato": "economy.taxes_and_other_revenues.global_rank",
+            "cantidad": 4,
+            "label": "Puesto mundial en impuestos"
+          },
+          {
+            "dato": "transportation.air_transport.airports.unpaved.914_to_1523_metres",
+            "cantidad": 4,
+            "label": "Aeropuertos no pavimentados 914 a 1523 m"
+          },
+          {
+            "dato": "energy.refined_petroleum_products.consumption.bbl_per_day",
+            "cantidad": 2,
+            "label": "Consumo derivados petróleo barriles por día"
+          },
+          {
+            "dato": "energy.refined_petroleum_products.exports.bbl_per_day",
+            "cantidad": 1,
+            "label": "Exportaciones derivados petróleo barriles por día"
+          },
+          {
+            "dato": "economy.gdp.composition.by_end_use.end_uses.investment_in_fixed_capital",
+            "cantidad": 1,
+            "label": "Porcentaje del PIB destinado a inversión en capital fijo"
+          },
+          {
+            "dato": "transportation.air_transport.airports.total.global_rank",
+            "cantidad": 2,
+            "label": "Aeropuertos posición mundial"
+          },
+          {
+            "dato": "economy.gdp.composition.by_sector_of_origin.sectors.services",
+            "cantidad": 1,
+            "label": "Porcentaje del PIB proveniente de servicios"
+          },
+          {
+            "dato": "energy.natural_gas.production.cubic_metres",
+            "cantidad": 4,
+            "label": "Producción gas natural metros cúbicos"
+          },
+          {
+            "dato": "people.religions.religion[0].percent",
+            "cantidad": 2,
+            "label": "Porcentaje de la religión principal"
+          },
+          {
+            "dato": "geography.land_use.by_sector.agricultural_land_total.value",
+            "cantidad": 1,
+            "label": "Porcentaje de tierra agrícola total"
+          }
+        ],
+        "paisesAcertados": [
+          {
+            "pais": "indonesia",
+            "cantidad": 1,
+            "label": "Indonesia"
+          },
+          {
+            "pais": "andorra",
+            "cantidad": 2,
+            "label": "Andorra"
+          },
+          {
+            "pais": "portugal",
+            "cantidad": 1,
+            "label": "Portugal"
+          },
+          {
+            "pais": "saint_kitts_and_nevis",
+            "cantidad": 1,
+            "label": "San Cristóbal y Nieves"
+          },
+          {
+            "pais": "burkina_faso",
+            "cantidad": 1,
+            "label": "Burkina Faso"
+          },
+          {
+            "pais": "comoros",
+            "cantidad": 1,
+            "label": "Comoras"
+          },
+          {
+            "pais": "rwanda",
+            "cantidad": 1,
+            "label": "Ruanda"
+          },
+          {
+            "pais": "grenada",
+            "cantidad": 1,
+            "label": "Granada"
+          },
+          {
+            "pais": "mali",
+            "cantidad": 1,
+            "label": "Malí"
+          },
+          {
+            "pais": "south_africa",
+            "cantidad": 2,
+            "label": "Sudáfrica"
+          },
+          {
+            "pais": "thailand",
+            "cantidad": 1,
+            "label": "Tailandia"
+          },
+          {
+            "pais": "brazil",
+            "cantidad": 1,
+            "label": "Brasil"
+          },
+          {
+            "pais": "liberia",
+            "cantidad": 1,
+            "label": "Liberia"
+          },
+          {
+            "pais": "south_sudan",
+            "cantidad": 1,
+            "label": "Sudán del Sur"
+          },
+          {
+            "pais": "liechtenstein",
+            "cantidad": 1,
+            "label": "Liechtenstein"
+          },
+          {
+            "pais": "tonga",
+            "cantidad": 1,
+            "label": "Tonga"
+          },
+          {
+            "pais": "paraguay",
+            "cantidad": 1,
+            "label": "Paraguay"
+          },
+          {
+            "pais": "bahamas_the",
+            "cantidad": 1,
+            "label": "Bahamas"
+          },
+          {
+            "pais": "solomon_islands",
+            "cantidad": 1,
+            "label": "Islas Salomón"
+          },
+          {
+            "pais": "kenya",
+            "cantidad": 1,
+            "label": "Kenia"
+          },
+          {
+            "pais": "el_salvador",
+            "cantidad": 1,
+            "label": "El Salvador"
+          },
+          {
+            "pais": "congo_republic_of_the",
+            "cantidad": 1,
+            "label": "República del Congo"
+          },
+          {
+            "pais": "bulgaria",
+            "cantidad": 1,
+            "label": "Bulgaria"
+          },
+          {
+            "pais": "estonia",
+            "cantidad": 1,
+            "label": "Estonia"
+          },
+          {
+            "pais": "brunei",
+            "cantidad": 1,
+            "label": "Brunéi"
+          },
+          {
+            "pais": "czechia",
+            "cantidad": 1,
+            "label": "Chequia"
+          },
+          {
+            "pais": "dominica",
+            "cantidad": 1,
+            "label": "Dominica"
+          },
+          {
+            "pais": "sao_tome_and_principe",
+            "cantidad": 1,
+            "label": "Santo Tomé y Príncipe"
+          },
+          {
+            "pais": "barbados",
+            "cantidad": 1,
+            "label": "Barbados"
+          },
+          {
+            "pais": "albania",
+            "cantidad": 1,
+            "label": "Albania"
+          },
+          {
+            "pais": "marshall_islands",
+            "cantidad": 1,
+            "label": "Islas Marshall"
+          }
+        ],
+        "categoriaMasAcertada": {
+          "dato": "transportation.air_transport.airports.unpaved.2438_to_3047_metres",
+          "cantidad": 5,
+          "label": "Aeropuertos no pavimentados 2438 a 3047 m"
+        },
+        "paisMasAcertado": {
+          "pais": "andorra",
+          "cantidad": 2,
+          "label": "Andorra"
+        },
+        "comparacionesHechas": 43
+      },
+      "bloques": {
+        "puntaje": null,
+        "rondasGanadas": null,
+        "promedioPuntajes": null,
+        "listaPuntajes": [],
+        "categoriasPreguntadas": [],
+        "valoresPreguntados": [],
+        "listaValoresPreguntados": [],
+        "valorPromedio": null,
+        "categoriaMasPreguntada": {},
+        "preguntasHechas": 0
+      }
+    }
+  }
+}

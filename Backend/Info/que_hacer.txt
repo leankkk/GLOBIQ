@@ -1,0 +1,12 @@
+ESTAN PUESTOS LOS PUERTOS EN 3001 PARA EVITAR UN BUG. SI DA PROBLEMAS CAMBIAR
+
+mayor
+
+seguir cambiando labels desde la linea 2388
+
+bloques: falta resolver algunos errores de las stats
+- mas preguntado y eso ni existen. copiar de mayor menor e implementar
+- el promedio de valores no fuunciona. revisar la funcion, que esta medio rara (le puse un caso especial de true/false raro)
+- valoresPreguntados se sobreescribe
+
+agregar funcion de datos quemados a modo mayor o menor? ya no hace falta casi

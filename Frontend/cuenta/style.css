@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #dcefe8, #bde0c8);
+  font-family: "Inter", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.menu-container {
+  position: fixed;        
+  top: 15px;
+  right: 20px;
+  z-index: 1000;         
+}
+
+
+.menu-icon {
+  font-size: 32px;
+  cursor: pointer;
+  user-select: none;
+  color: #111;
+  transition: transform 0.2s;
+}
+
+.menu-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Menú desplegable */
+.menu-options {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  background-color: #2f2f2f;
+  border-radius: 10px;
+  position: absolute;
+  right: 0;
+  top: 40px;
+  width: 180px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Ítems */
+.menu-options li {
+  padding: 0;
+}
+
+/* Enlaces */
+.menu-options a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px 15px;
+  transition: background 0.3s, padding-left 0.2s;
+}
+
+.menu-options a:hover {
+  background-color: #444;
+  padding-left: 20px;
+}
+
+/* Mostrar el menú mientras el mouse esté sobre el ícono o el menú */
+.menu-container:hover .menu-options {
+  display: flex;
+}
+
+
+
+.stats-container {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  width: 80vw;
+  max-width: 800px;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh 2vw;
+  overflow-y: auto;
+}
+
+.titulo {
+  text-align: center;
+  color: #007a66;
+  font-size: 2.5vh;
+  margin-bottom: 2vh;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  width: 100%;
+}
+
+.card {
+  background-color: #f5f5f5;
+  border-radius: 15px;
+  padding: 2vh 2vw;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  margin: 0 0 1vh 0;
+  color: #009e8b;
+  font-size: 2.2vh;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5vh;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8vh;
+  font-size: 2vh;
+  color: #333;
+}
+.logo {
+  position: absolute;     /* se posiciona sobre el contenido */
+  top: 15px;              /* distancia desde arriba */
+  left: 20px;             /* distancia desde la izquierda */
+  z-index: 1000;          /* por encima de todo */
+}
+
+.logo img {
+  width: 80px;            /* tamaño del logo */
+  height: auto;           /* mantiene proporción */
+  object-fit: contain;    /* evita deformaciones */
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.4)); /* opcional: sombra leve */
+}

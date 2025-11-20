@@ -1,0 +1,47 @@
+STATS
+Cuenta:
+    - Nombre de Cuenta
+    - Contraseña (SECRETO)
+    - Percentil de jugadores (REVISAR)
+
+Diario:
+    Principales:
+        - Menores intentos
+        - Promedio de intentos
+        - Porcentaje de efectividad
+    Secundarias
+        - Racha
+        - Racha más larga
+        - Partida más rápida
+        - Tiempo promedio
+        - Partidas jugadas
+
+Adivinar:
+    Principales:
+        - Menor número de intentos
+        - Victorias sobre intentos (x/y)
+        - Porcentaje de efectividad
+    Secundarias:
+        - Racha
+        - Racha más larga
+        - Partida más rápida
+        - Tiempo promedio
+        - Partidas jugadas
+
+Mayor o menor:
+    Principales:
+        - Récord X
+        - Racha de días
+    Secundarias:
+        - Categoría con mas aciertos
+        - País con más aciertos
+        - Racha promedio
+        - Ratio de victorias/derrotas
+        - Winrate (correct guess rate)
+        - Adivinados correctamente totales
+        - Errores totales
+
+General:
+    - Datos agotados
+
+FORMATO PARA STATS

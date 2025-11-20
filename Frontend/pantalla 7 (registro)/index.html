@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GlobiQ - Registro</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+  
+    <div class="menu-container">
+      <div class="menu-icon">☰</div>
+      <ul class="menu-options">
+        <li><a href="../home/index.html">Inicio</a></li>
+        <li><a href="../pantalla%205%20(modo%20diario)/index.html">Modo diario</a></li>
+        <li><a href="../pantalla%204%20(higher%20lower)/index.html">Mayor o Menor</a></li>
+        <li><a href="../pantalla%203%20(juego%20bloques)/index.html">Modo Detective</a></li>
+        <li><a href="../pantalla%206%20(login)/index.html">Login</a></li>
+        <li><a href="../pantalla%207%20(registro)/index.html">Registro</a></li>
+        <li><a href="../cuenta/index.html">Cuenta</a></li>
+      </ul>
+    </div>
+
+    <div class="contenedor">
+      <img src="/Frontend/pantalla 7 (registro)/Vector.png" alt="GlobiQ logo" class="logo" />
+
+      <div class="formulario">
+
+        <input type="text" id="usuario" placeholder="Usuario" />
+
+        <!-- CONTRASEÑA -->
+        <div class="input-pass">
+          <input type="password" id="password" placeholder="Contraseña" />
+          <span class="ver" onclick="togglePassword('password')"></span>
+        </div>
+
+        
+        <div class="input-pass">
+          <input type="password" id="password2" placeholder="Repetir contraseña" />
+          <span class="ver" onclick="togglePassword('password2')"></span>
+        </div>
+
+        <button id="loginBtn">Registrarse</button>
+      </div>
+    </div>
+
+    <div id="popupBienvenida" class="popup">
+      <div class="popup-content">
+        <h2 id="mensajeBienvenida">Bienvenido</h2>
+        <button id="btnAceptarPopup">Aceptar</button>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

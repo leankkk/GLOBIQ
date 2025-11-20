@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Modo Mayor o Menor</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <h1 id="categoriaNombre">TERRITORIO</h1>
+        <button id="btnCambiarCategoria" class="boton2">Cambiar de categoría (3)</button>
+    </header>
+
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css"/>
+
+<div class="logo">
+  <img src="./Vector.png" alt="Logo">
+</div>
+   
+   
+   
+  <div class="menu-container">
+    <div class="menu-icon">☰</div>  
+    <ul class="menu-options">
+      <li><a href="../home/index.html">Inicio</a></li>
+      <li><a href="../pantalla%205%20(modo%20diario)/index.html">Modo diario</a></li>
+      <li><a href="../pantalla%204%20(higher%20lower)/index.html">Mayor o Menor</a></li>
+      <li><a href="../pantalla%203%20(juego%20bloques)/index.html">Modo Detective</a></li>
+      <li><a href="../pantalla%206%20(login)/index.html">Login</a></li>
+      <li><a href="../pantalla%207%20(registro)/index.html">Registro</a></li>
+      <li><a href="../cuenta/index.html">Cuenta</a></li>
+    </ul>
+  </div>
+
+    <main class="contenedor">
+
+        <div class="ladoIzquierdo">
+            <div class="card paisIZQ">
+       
+                <div class="card-header"style="display: flex; flex-direction: column; justify-content: center; align-items: center;
+                    gap: 2rem;" id="paisInicialNombre">
+                    <span id="nombrePaisIZQ">Cargando...</span>
+                    <span id="flag1" class="fi fi-es" style="scale: 4;"></span>
+                </div>
+
+
+                <div class="card-content">
+                    <h2 id="paisInicialDato">Cargando...</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="vs">VS</div>
+
+        <div class="ladoDerecho">
+            <div class="card paisDERCHO">
+                <div class="card-header" style="display: flex; flex-direction: column; justify-content: center; align-items: center;
+                    gap: 2rem;" id="pais2Nombre">
+                    <span id="nombrePaisDER">Cargando...</span>
+                    <span id="flag2" class="fi fi-us" style="scale: 4;"></span>
+                </div>
+                <div class="selector">
+                    <button id="btnMayor" class="boton">MAYOR</button>
+                    <button id="btnMenor" class="boton">MENOR</button>
+                </div>
+            </div>
+        </div>
+
+       
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p id="mensajeResultado">¡Has perdido! Tu puntaje es: 0</p>
+                <div class="botones">
+                    <button id="btnJugar" class="btn-jugar">Jugar de nuevo</button>
+                    <button id="btnPrincipal" class="btn-principal">Ir a la página principal</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<h3>Racha:</h3> <h2 id="rachaContador">0</h2>
+<br>
+
+<div class="ayuda">
+  <img src="/Frontend/home/ph_question-fill.png" alt="Cómo jugar">
+</div>
+
+<div id="popup" class="popup">
+
+    <div class="popup-content">
+      <span class="cerrar">&times;</span>
+ <h2>CÓMO JUGAR</h2>
+      <h3>Mayor o Menor</h3>
+      <p>
+        Tu objetivo es adivinar si el segundo país tiene un valor mayor o menor que el primero en una categoría específica.
+      </p>
+      <p>
+        Si acertás, tu racha aumenta y los países y la categoría cambian. Si fallás, el juego termina y podés intentar de nuevo para mejorar tu racha.
+      </p>
+       </div>
+  </div>
+   
+
+   
+  <div id="cuentaBtn" class="cuenta">
+    <img src="/Frontend/home/mdi_account.png" alt="Cuenta">
+  </div>
+
+
+</body>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/JZylber/SoqueTIC-Client@v1.4.2/soquetic-client.js" defer></script>
+    <script src="main.js" defer></script>
+</html>

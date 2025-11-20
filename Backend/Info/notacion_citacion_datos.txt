@@ -1,0 +1,44 @@
+Ej 1: Población de Uruguay
+uruguay.people.population.total
+
+SUBCARPETAS
+Introduction
+Geography
+People
+Government
+Economy
+Energy
+Communications
+Transportation
+Military_and_security
+Transnational_issues
+
+traerdato:
+dato = limpiarpedido(dato);
+return data[pais][dato[0]][dato[1]][dato[2]];
+
+limpiarpedido:
+let i;
+let c;
+let categoria = "";
+let dato = "";
+let valor = "";
+    for (i = 0; i < string.length; i++){
+    if (string[i] === "."){
+        let punto1 = i;
+for (c = 0; c < punto1; c++){
+categoria += string[c];
+    }
+    if (string[i] === "." && categoria != ""){
+        let punto2 = i;
+        for (c = punto1; c < punto2; c++){
+        dato += string[c];
+            }
+     if (string[i] === "." && dato != "."){
+        let punto3 = i;
+        for (c = punto2; c < punto3; c++){
+        valor += string[c];
+            }
+    }
+}
+    }

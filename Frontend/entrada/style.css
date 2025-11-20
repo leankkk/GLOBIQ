@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #05355B;
+  font-family: 'Dongle', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3vh;
+}
+
+.logo {
+  width: 35vw;
+  height: auto;
+}
+
+.texto-bienvenida {
+  font-size: 4.7vh;
+  color: #FFFFFF;
+  margin-top: 2vh;
+  letter-spacing: 0.05em;
+
+}
+
+.botones {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+  margin-top: 2vh;
+}
+
+.boton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17.5vw; 
+  height: 7.1vh; 
+  background-color: rgba(181, 181, 181, 0.62);
+  color: #FFFFFF;
+  font-size: 3vh;
+  text-decoration: none;
+  border-radius: 0.7vh;
+  transition: all 0.3s ease;
+}
+
+.boton:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #05355B;
+}
