@@ -507,6 +507,10 @@ export async function crearRecords() {
   }
   return { records };
 }
+
+export function recordsFront(){
+  return crearRecords();
+}
     //console.log(Object.entries(cuentas)[0][1]);
     
     /* DEBERIA DEVOLVER: 

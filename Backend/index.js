@@ -7,7 +7,7 @@ import {
   cuentaexiste, crearcuenta, revisarlogin, actualizarstats,
   elegirpista, iniciarMayorMenor, compararMayorMenor,
   enviarCategorias, enviarStats, recibirInputBloques,
-  crearRecords
+  crearRecords, recordsFront
 } from "./Source/funciones.js";
 
 const app = express();
@@ -60,6 +60,11 @@ app.post("/iniciarSesion", async (req, res) => {
 // PANTALLA 7 (registro)
 app.post("/crearCuenta", async (req, res) => {
   res.json(await crearcuenta(req.body));
+});
+ 
+// RÉCORDS
+app.get("/enviarRecordsAlFront", (req, res) => {
+  res.json(recordsFront());
 });
 
 // Servir el frontend (VA AL FINAL)
