@@ -30,9 +30,9 @@ function llenarLista(listaDOM, infoArr) {
 }
  
 function mostrarStats(data) {
-  llenarLista(listaDiario, data.records.diario);
-  llenarLista(listaMayorMenor, data.records.mayormenor);
-  llenarLista(listaBloques, data.records.bloques);
+  llenarLista(listaDiario, data.diario);
+  llenarLista(listaMayorMenor, data.mayormenor);
+  llenarLista(listaBloques, data.bloques);
 }
  
 getEvent("enviarRecordsAlFront", mostrarStats);
