@@ -1,6 +1,31 @@
 
 let nombreUsuario = document.getElementById("nombreUsuario");
 let usuario = sessionStorage.getItem("usuario") || "Sin usuario";
+
+// Si no está logueado, mostrar mensaje y ocultar stats
+if (!sessionStorage.getItem("usuario")) {
+  nombreUsuario.textContent = "Sin iniciar sesión";
+  document.getElementById("cardsContainer").style.display = "none";
+  document.getElementById("btnLogout").style.display = "none";
+  
+  let mensaje = document.createElement("p");
+  mensaje.textContent = "Iniciá sesión para ver tus estadísticas.";
+  mensaje.style.color = "#555";
+  mensaje.style.fontSize = "2vh";
+  mensaje.style.marginTop = "3vh";
+  document.querySelector(".stats-container").appendChild(mensaje);
+  
+  let btnLogin = document.createElement("button");
+  btnLogin.textContent = "Iniciar sesión";
+  btnLogin.className = "btn-logout";
+  btnLogin.style.backgroundColor = "#007a66";
+  btnLogin.addEventListener("click", () => {
+    window.location.href = "../pantalla 6 (login)/index.html";
+  });
+  document.querySelector(".stats-container").appendChild(btnLogin);
+} else {
+  postEvent("enviarStatsAlFront", { nombre: usuario }, mostrarStats);
+}
 nombreUsuario.textContent = usuario;
  
 let listaDiario = document.getElementById("listaDiario");
@@ -35,9 +60,7 @@ function mostrarStats(data) {
   llenarLista(listaMayorMenor, data.stats.mayormenor);
   llenarLista(listaBloques, data.stats.bloques);
 }
- 
-postEvent("enviarStatsAlFront", { nombre: usuario }, mostrarStats);
- 
+  
 document.getElementById("btnLogout").addEventListener("click", function () {
   sessionStorage.removeItem("usuario");
   window.location.href = "../pantalla 6 (login)/index.html";
