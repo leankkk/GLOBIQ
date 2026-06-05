@@ -63,10 +63,9 @@ app.post("/crearCuenta", async (req, res) => {
 });
  
 // RÉCORDS
-app.get("/enviarRecordsAlFront", (req, res) => {
-  res.json(recordsFront());
+app.get("/enviarRecordsAlFront", async (req, res) => {
+  res.json(await crearRecords());
 });
-
 // Servir el frontend (VA AL FINAL)
 app.use(express.static(path.join(__dirname, "..", "Frontend")));
 
