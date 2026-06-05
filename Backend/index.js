@@ -7,7 +7,7 @@ import {
   cuentaexiste, crearcuenta, revisarlogin, actualizarstats,
   elegirpista, iniciarMayorMenor, compararMayorMenor,
   enviarCategorias, enviarStats, recibirInputBloques,
-  crearRecords, recordsFront
+  crearRecords,
 } from "./Source/funciones.js";
 
 const app = express();
