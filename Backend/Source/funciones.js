@@ -6,6 +6,8 @@ let data = JSON.parse(fs.readFileSync("./Datos/factbook_clean.json","utf-8"));
 import { listapaises , listadatos , listadias , listalabels, listadatosB, listalabelsB, listalabelsPaises, listaCodigosPaises} from "./listas.js";
 import path from "path";
 const categoriasFaciles = [
+  "people.population.total",
+  "geography.area.total.value",
   "economy.inflation_rate[0].value"
 ];
 
@@ -252,10 +254,14 @@ else paisInicial = data.paisInicial;
     while (pais2 === paisInicial){
     pais2 = paisrandom();
     }    
-let modo = data.modo ?? "dificil";
 let dato = datorandompormodo(modo);
-while (traer(paisInicial,dato) === undefined) dato = datorandompormodo(modo);
-let valorInicial = traer(paisInicial,dato);
+let intentos = 0;
+while ((traer(paisInicial, dato) === undefined || typeof traer(paisInicial, dato) !== "number") && intentos < 10) {
+    dato = datorandompormodo(modo);
+    intentos++;
+}
+if (typeof traer(paisInicial, dato) !== "number") dato = datorandomnum();
+let valorInicial = traer(paisInicial, dato);
 
 
 if (data.timer === undefined) timer = 0;
