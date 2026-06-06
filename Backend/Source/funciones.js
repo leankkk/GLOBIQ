@@ -250,10 +250,11 @@ let paisInicial;
 if (data.paisInicial === undefined) paisInicial = paisdiario();
 else paisInicial = data.paisInicial;
 
-    let pais2 = paisInicial;
+  let pais2 = paisInicial;
     while (pais2 === paisInicial){
     pais2 = paisrandom();
     }    
+let modo = data.modo ?? "dificil";
 let dato = datorandompormodo(modo);
 let intentos = 0;
 while ((traer(paisInicial, dato) === undefined || typeof traer(paisInicial, dato) !== "number") && intentos < 10) {
