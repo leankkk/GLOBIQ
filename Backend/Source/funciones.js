@@ -8,7 +8,6 @@ import path from "path";
 const categoriasFaciles = [
   "people.population.total",
   "geography.area.total.value",
-  "economy.inflation_rate[0].value"
 ];
 
 const categoriasMedias = [
