@@ -264,7 +264,6 @@ if (data.timer === undefined) timer = 0;
 else data.timer += 1;
 
 
-
 return {
     paisInicial: paisInicial, 
     labelpaisInicial: traerlabelpais(paisInicial),
@@ -276,9 +275,9 @@ return {
     valorInicial: valorInicial,
     labelvalorInicial: traerlabelvalor(valorInicial),
     label: traerlabel(dato),
-    timer: timer
-        };
-}
+    timer: timer,
+    modo: modo
+};
 
 
 
