@@ -278,6 +278,7 @@ return {
     timer: timer,
     modo: modo
 };
+}  
 
 
 
