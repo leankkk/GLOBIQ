@@ -92,13 +92,29 @@ export function paisdiariofacil() {
     diferencia = diferencia % paisesFaciles.length;
     return { pais: paisesFaciles[diferencia], label: traerlabelpais(paisesFaciles[diferencia]) };
 }
+const labelsPersonalizados = {
+  "people.population.total": "Población",
+  "geography.area.total.value": "Territorio (km²)",
+  "economy.inflation_rate[0].value": "Tasa de inflación",
+  "people.median_age.total.value": "Edad mediana",
+  "people.life_expectancy_at_birth.total_population.value": "Esperanza de vida",
+  "people.birth_rate.births_per_1000_population": "Tasa de natalidad",
+  "people.death_rate.deaths_per_1000_population": "Tasa de mortalidad",
+  "people.urbanization.urban_population.value": "Población urbana",
+  "geography.elevation.highest_point.elevation.value": "Elevación máxima",
+  "geography.coastline.value": "Longitud de costas",
+  "people.literacy.total_population.value": "Tasa de alfabetización",
+  "people.infant_mortality_rate.total.value": "Mortalidad infantil",
+  "government.capital.geographic_coordinates.latitude.degrees": "Latitud de la capital",
+  "government.capital.geographic_coordinates.longitude.degrees": "Longitud de la capital"
+};
 
 export function traerlabel(dato) {
-    for (let i = 0; i < listadatosB.length; i++){ 
-        if (listadatosB[i] === dato) return listalabelsB[i];   
-    }
+  if (labelsPersonalizados[dato]) return labelsPersonalizados[dato];
+  for (let i = 0; i < listadatosB.length; i++){ 
+    if (listadatosB[i] === dato) return listalabelsB[i];   
+  }
 }
-
 export function traerlabelCodigoPais(pais) {
     for (let i = 0; i < listapaises.length; i++){ 
         if (listapaises[i] === pais) return listaCodigosPaises[i];   
