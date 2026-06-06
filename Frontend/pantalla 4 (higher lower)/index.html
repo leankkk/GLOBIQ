@@ -112,7 +112,25 @@
   <div id="cuentaBtn" class="cuenta">
 <img src="../home/mdi_account.png" alt="Cuenta">
   </div>
-
+<div id="popupModo" class="popup" style="display:none;">
+  <div class="popup-content" style="text-align:center;">
+    <h2>Mayor o Menor</h2>
+    <p>Adivina si el segundo país tiene un valor <strong>mayor o menor</strong> que el primero.</p>
+    <p>Si acertás, tu racha sube. Si fallás, el juego termina.</p>
+    <hr style="margin: 1rem 0;">
+    <h3>Elegí un modo</h3>
+    <p style="font-size:0.9em; color:#555;">
+      🟢 Fácil: población, territorio e inflación.<br>
+      🟡 Medio: más categorías conocidas.<br>
+      🔴 Difícil: categorías random.
+    </p>
+    <div style="display:flex; gap:1rem; justify-content:center; margin-top:1rem; flex-wrap:wrap;">
+      <button id="btnFacil" class="boton">🟢 Fácil</button>
+      <button id="btnMedio" class="boton">🟡 Medio</button>
+      <button id="btnDificil" class="boton">🔴 Difícil</button>
+    </div>
+  </div>
+</div>
 
 </body>
 <script src="/rest.js"></script>
