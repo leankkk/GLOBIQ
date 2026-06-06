@@ -508,20 +508,21 @@ export async function enviarStats(data) {
   const cuenta = await col.findOne({ nombre: data.nombre });
   return cuenta;
 }
-
 export function cambiarCategoria(data){
+let modo = data.modo ?? "dificil";
 let categoriaAEvitar = data.dato;
 let categoriaNueva = categoriaAEvitar;
 while (categoriaNueva === categoriaAEvitar){
-categoriaNueva = datorandomnum();
+categoriaNueva = datorandompormodo(modo);
 }
 data.dato = categoriaNueva;
 data.label = traerlabel(categoriaNueva);
 data.valorInicial = traer(data.paisInicial,categoriaNueva);
-data.labelvalorInicial = traerlabelvalor(data.valorInicial)
+data.labelvalorInicial = traerlabelvalor(data.valorInicial);
 data.idPaisInicial = traerlabelCodigoPais(data.paisInicial);
 data.idPais2 = traerlabelCodigoPais(data.pais2);
 data.labelpais2 = traerlabelpais(data.pais2);
+data.modo = modo;
 return data;
 }
 export async function crearRecords() {
