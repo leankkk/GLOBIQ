@@ -90,10 +90,11 @@ function compararListasAcertados(info, esCategoria){
 function establecerBandera(codigo, inicial) {
   const num = inicial ? 1 : 2;
   const bandera = document.getElementById("flag" + num);
+
   if (!bandera) return;
-  bandera.className = "";
-  void bandera.offsetWidth;
-  bandera.className = "fi fi-" + codigo.toLowerCase();
+
+  bandera.innerHTML =
+      `<span class="fi fi-${codigo.toLowerCase()}" style="scale:4;"></span>`;
 }
 
 function calcularMasAcertado(lista){

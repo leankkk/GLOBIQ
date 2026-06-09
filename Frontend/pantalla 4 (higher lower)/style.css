@@ -432,3 +432,10 @@ h3 {
     color: #000; 
     transform: scale(1.15);
    }
+   .loading-gif{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+    display:block;
+    margin:auto;
+}
