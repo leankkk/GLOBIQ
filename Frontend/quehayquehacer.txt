@@ -1,11 +1,9 @@
-1*integrar el diseño con el front - TODAS LAS PANTALLAS
-2*integrar el login con los juegos (bienvenido, x) - todos los juegos
-3*boton de rendirse (dice q país era y hace lo mismo q cuando perdes) - arreglarlo en diario (queda ariiba del popup de victoria) y bloques
-4*popup como jugar - bloques y diario 
-12*error visual muy chico, probablemente del css: en el menu hamburguesa nuevo de cuenta se ve el texto subrayado y en azul
-EN ORDEN DE PRIORIDAD. Hay que hacer todos.
-mas (iud o fluffy): achicar btn rend
-cambiar e+los logos por los correctos
-hacer el pop del signo de pregunta en todos los juegos
- sacar el btn de adivinar en el diario (xq ya anda el enter)
- en la home, que aparezca el nombr de usuario debajo del logo de perfil.
+ FRONT
+- ARREGLAR LOGOS!!
+- Arreglar estética del modo diario, pop up ganaste
+- Cambiar botones a blanco
+- Mejorar récords en el front (una tarjeta para cada modo)
+- Al rendirse, que diga qué país era
+- Arreglar pop up login, que en la página de incio de la bienvenida
+- Cambiar fotos inicio de los modos
+- En la home, que aparezca el username debajo del logo de perfil

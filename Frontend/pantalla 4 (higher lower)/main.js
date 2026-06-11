@@ -145,9 +145,10 @@ function iniciarMayorMenor(data) {
 }
 
 async function enviarstats(){
+  if (modo !== "facil"){
     let nombreAGuardar = usuario || "Sin usuario";
     postEvent("enviarStatsAlFront", {nombre: nombreAGuardar}, getStats);
-}
+  }}
 
 function getStats(data){
     infousuario = data;
