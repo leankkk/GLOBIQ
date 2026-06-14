@@ -19,7 +19,6 @@ let paisobjetivo;
 let listadescartados;
 let listaposibles;
 let usuario = sessionStorage.getItem("usuario") ?? "Sin usuario";
-let cuentaBtn = document.getElementById("cuentaBtn");
 let campoAdivinarPais = document.getElementById("inputAdivinarPais");
 let btnAdivinarPais = document.getElementById("btnAdivinarPais");
 let ayudaBtn = document.getElementById("ayudaBtn");
@@ -499,13 +498,3 @@ document.querySelectorAll("svg .land").forEach((pais) => {
     tooltipPais.classList.remove("visible");
   });
 });
-
-if (cuentaBtn) {
-  cuentaBtn.addEventListener("click", () => {
-    if (usuario === "Sin usuario" || !usuario) {
-      window.location.href = "../pantalla 6 (login)/index.html";
-    } else {
-      window.location.href = "../cuenta/index.html";
-    }
-  });
-}
