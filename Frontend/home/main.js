@@ -5,6 +5,25 @@ let cuentaBtn = document.getElementById("cuentaBtn");
 let popup = document.getElementById("popup");  
 let btnMostrarPopup = document.getElementById("btnMostrarPopup");  
 let popupContent = document.querySelector('.popup-content'); 
+let cuentaTooltip = document.getElementById("cuentaTooltip");
+let bienvenidaBanner = document.getElementById("bienvenidaBanner");
+let bienvenidaTexto = document.getElementById("bienvenidaTexto");
+let cerrarBienvenida = document.getElementById("cerrarBienvenida");
+
+cuentaTooltip.textContent = usuario || "Iniciar sesión";
+
+function ocultarBienvenida() {
+  bienvenidaBanner.classList.remove("visible");
+}
+
+if (sessionStorage.getItem("mostrarBienvenida") === "true" && usuario) {
+  bienvenidaTexto.textContent = `Bienvenido, ${usuario}`;
+  bienvenidaBanner.classList.add("visible");
+  sessionStorage.removeItem("mostrarBienvenida");
+  setTimeout(ocultarBienvenida, 4000);
+}
+
+cerrarBienvenida.addEventListener("click", ocultarBienvenida);
 
 
 cuentaBtn.addEventListener("click", () => {

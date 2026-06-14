@@ -49,6 +49,14 @@
   background-color: #444;
   padding-left: 20px;
 }
+.menu-options a.actual,
+.menu-options a.actual:hover {
+  color: #b8b8b8;
+  background-color: #3a3a3a;
+  cursor: default;
+  pointer-events: none;
+  padding-left: 15px;
+}
 
 .menu-container:hover .menu-options {
   display: flex;

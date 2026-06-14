@@ -1,6 +1,6 @@
 FRONT
 - Pop up log in inicio boton aceptar (estirar)
-- ARREGLAR LOGOS DE TODO (front + timi)
+- ARREGLAR LOGOS DE TODO (front + timi) 
 - Cambiar botones a blanco
 - Botones y pop up ganaste
 - MODO DIARIO 

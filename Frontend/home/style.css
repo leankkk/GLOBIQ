@@ -31,6 +31,70 @@ body {
 }
 .cuenta:hover { transform: scale(1.1); }
 
+.cuenta-tooltip {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: max-content;
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.88);
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.cuenta:hover .cuenta-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bienvenida-banner {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  min-width: 320px;
+  padding: 13px 14px 13px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: #fff;
+  color: #05355B;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -18px);
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+.bienvenida-banner.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.bienvenida-banner button {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  background: transparent;
+  color: #333;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
 
 .ayuda {
   position: absolute;
@@ -208,4 +272,10 @@ body {
     }
     
     .texto { font-size: 5vw; }
+
+    .bienvenida-banner {
+      top: 12px;
+      min-width: 0;
+      width: calc(100% - 28px);
+    }
   }

@@ -14,13 +14,12 @@
 
 <body>
 
-  <h1>MODO DIARIO</h1>
-
   <div class="menu-container">
     <div class="menu-icon">☰</div>
 
     <ul class="menu-options">
       <li><a href="../home/index.html">Inicio</a></li>
+      <li><a class="actual" aria-disabled="true" tabindex="-1">Modo diario</a></li>
       <li><a href="../pantalla 4 (higher lower)/index.html">Mayor o Menor</a></li>
       <li><a href="../pantalla 3 (juego bloques)/index.html">Modo Detective</a></li>
       <li><a href="../pantalla 6 (login)/index.html">Login</a></li>
@@ -30,37 +29,69 @@
     </ul>
   </div>
 
-  <div class="contenedorInput">
-    <input id="input" type="text" placeholder="Escribe un país...">
-    <button id="enviar">Adivinar</button>
+  <main class="daily-shell">
+    <section class="daily-header">
+      <h1>MODO DIARIO</h1>
+    </section>
+
+    <section class="daily-card" aria-label="Adivinar país diario">
+      <div class="contenedorInput">
+        <input id="input" type="text" placeholder="Escribe un país..." autocomplete="off">
+        <button id="enviar">Adivinar</button>
+        <button id="btnRendirse" class="btn-rendirse">Rendirse</button>
+      </div>
+    </section>
+
+    <section class="contenedores">
+      <div id="intentosContainer" class="daily-panel">
+        <div class="panel-header">
+          <span class="panel-icon">?</span>
+          <h3>Intentos</h3>
+        </div>
+        <div id="listaIntentos"></div>
+      </div>
+
+      <div id="pistasContainer" class="daily-panel">
+        <div class="panel-header">
+          <span class="panel-icon">i</span>
+          <h3>Pistas</h3>
+        </div>
+        <div id="listaPistas"></div>
+      </div>
+    </section>
+  </main>
+
+<!-- POPUP GANAR -->
+<div id="popup" class="popup">
+  <div class="popup-content-ganar">
+
+    <div class="check">✓</div>
+
+    <h2>¡Adivinaste el país!</h2>
+
+    <p id="cantidaddeintentosDOM"></p>
+
+    <button id="btn-ok">Volver al inicio</button>
+
   </div>
+</div>
 
-  <div class="contenedores">
-
-    <div id="intentosContainer">
-      <h3>Intentos</h3>
-      <div id="listaIntentos"></div>
-    </div>
-
-    <div id="pistasContainer">
-      <h3>Pistas</h3>
-      <div id="listaPistas"></div>
-    </div>
-
-  </div>
-
-  <!-- POPUP GANAR -->
-  <div id="popup" class="popup">
-    <div class="popup-content-ayuda">
-      <h2>¡Adivinaste el país!</h2>
-      <p id="cantidaddeintentosDOM"></p>
-      <button id="btn-ok">VOLVER</button>
+  <div id="popupRendirse" class="popup popup-rendirse">
+    <div class="popup-content-rendirse">
+      <p class="popup-etiqueta">La respuesta era</p>
+      <h2 id="respuestaRendirse"></h2>
+      <div class="popup-acciones">
+        <button id="btnReintentarRendirse">Volver a jugar</button>
+        <button id="btnInicioRendirse">Volver al inicio</button>
+      </div>
     </div>
   </div>
 
   <!-- LOGO -->
   <div class="logo">
-<img src="Vector (1).png" alt="Logo">
+    <a href="../home/index.html" aria-label="Ir al inicio">
+      <img src="../pantalla 4 (higher lower)/Vector (1).png" alt="GlobiQ">
+    </a>
   </div>
 
   <!-- CUENTA -->
@@ -70,7 +101,7 @@
 
   <!-- AYUDA -->
   <div class="ayuda" id="ayudaBtn">
-<img src="../home/ph_question-fill.png" alt="Cómo jugar">
+<img src="../pantalla 4 (higher lower)/ph_question-fill (1).png" alt="Cómo jugar">
   </div>
 
   <!-- POPUP AYUDA -->

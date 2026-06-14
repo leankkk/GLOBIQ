@@ -4,9 +4,6 @@ let botonlogin = document.getElementById("loginBtn");
 let placeholderContraseña = document.getElementById("password");
 let placeholderUsuario = document.getElementById("usuario");
 let botonregistro = document.getElementById("registroBtn");
-let popup = document.getElementById("popupBienvenida");
-let mensaje = document.getElementById("mensajeBienvenida");
-let botonAceptar = document.getElementById("btnAceptarPopup");
 
 function togglePassword(id) {
   let input = document.getElementById(id);
@@ -23,17 +20,12 @@ function togglePassword(id) {
 function realizarinicio(data) {
   if (data.login) {
     sessionStorage.setItem("usuario", placeholderUsuario.value);
-    mensaje.textContent = `¡Bienvenido, ${placeholderUsuario.value}!`;
-    popup.style.display = "flex";
+    sessionStorage.setItem("mostrarBienvenida", "true");
+    window.location.href = "../home/index.html";
   } else {
     alert("Usuario o contraseña incorrectos.");
   }
 }
-
-botonAceptar.addEventListener("click", () => {
-  popup.style.display = "none";
-  window.location.href = "../home/index.html";
-});
 
 botonlogin.addEventListener("click", () => {
   let usuario = placeholderUsuario.value.trim();

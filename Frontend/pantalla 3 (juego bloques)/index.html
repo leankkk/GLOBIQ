@@ -11,18 +11,26 @@
 </head>
 <body>
   <div class="logo">
-<img src="../pantalla 4 (higher lower)/logo higher lower.png"></div>
+    <a href="../home/index.html" aria-label="Ir al inicio">
+      <img src="../pantalla 4 (higher lower)/Vector (1).png" alt="GlobiQ">
+    </a>
+  </div>
   <div class="menu-container">
     <div class="menu-icon">☰</div>  
     <ul class="menu-options">
       <li><a href="../home/index.html">Inicio</a></li>
       <li><a href="../pantalla%205%20(modo%20diario)/index.html">Modo diario</a></li>
       <li><a href="../pantalla%204%20(higher%20lower)/index.html">Mayor o Menor</a></li>
+      <li><a class="actual" aria-disabled="true" tabindex="-1">Modo Detective</a></li>
       <li><a href="../pantalla%206%20(login)/index.html">Login</a></li>
       <li><a href="../pantalla%207%20(registro)/index.html">Registro</a></li>
       <li><a href="../cuenta/index.html">Cuenta</a></li>
       <li><a href="../records/index.html">Récords</a></li>
     </ul>
+  </div>
+
+  <div id="cuentaBtn" class="cuenta">
+    <img src="../home/mdi_account.png" alt="Cuenta">
   </div>
 
   <div class="container">
@@ -367,11 +375,39 @@
           <input list="listaPaises" id="inputAdivinarPais" placeholder="Nombre del país">
           <datalist id="listaPaises"></datalist>
           <button id="btnAdivinarPais">Adivinar país</button>
+          <button id="btnRendirse" class="btn-rendirse">Rendirse</button>
         </div>
 
       </div> <!-- cierre derecha -->
 
     </div> <!-- cierre layout -->
+
+  <button class="ayuda" id="ayudaBtn" type="button" aria-label="Cómo jugar">
+    <img src="../pantalla 4 (higher lower)/ph_question-fill (1).png" alt="">
+  </button>
+
+  <div id="popupAyuda" class="popup-ayuda-overlay" role="dialog" aria-modal="true" aria-labelledby="tituloAyuda">
+    <div class="popup-ayuda-content">
+      <button id="cerrarAyuda" class="cerrar-ayuda" type="button" aria-label="Cerrar">&times;</button>
+      <h2 id="tituloAyuda">CÓMO JUGAR</h2>
+      <h3>Modo Detective</h3>
+      <p>Arrastrá una categoría y Mayor o Menor a los espacios, escribí un valor y hacé tu pregunta.</p>
+      <p>El mapa y las listas te mostrarán qué países siguen siendo posibles y cuáles quedaron descartados.</p>
+      <p>Cuando tengas una sospecha, escribí el país. Tenés hasta tres intentos para encontrarlo.</p>
+    </div>
+  </div>
+
+  <div id="popupRendirse" class="popup-rendirse-overlay">
+    <div class="popup-rendirse-content">
+      <p>El país era</p>
+      <h2 id="respuestaRendirse"></h2>
+      <div class="popup-rendirse-acciones">
+        <button id="btnReintentarRendirse">Volver a jugar</button>
+        <button id="btnInicioRendirse">Volver al inicio</button>
+      </div>
+    </div>
+  </div>
+
 <script src="/rest.js"></script>
   <script src="main.js"></script>
 

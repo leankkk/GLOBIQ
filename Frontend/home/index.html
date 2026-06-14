@@ -9,11 +9,19 @@
 <body>
 
   <div class="logo">
-    <img src="Vector.png" alt="Logo">
+    <a href="index.html" aria-label="Ir al inicio">
+      <img src="Vector.png" alt="GlobiQ">
+    </a>
   </div>
 
   <div id="cuentaBtn" class="cuenta">
     <img src="mdi_account.png" alt="Cuenta">
+    <span id="cuentaTooltip" class="cuenta-tooltip"></span>
+  </div>
+
+  <div id="bienvenidaBanner" class="bienvenida-banner" role="status">
+    <span id="bienvenidaTexto"></span>
+    <button id="cerrarBienvenida" aria-label="Cerrar bienvenida">&times;</button>
   </div>
 
   <main class="contenedor-cartas">

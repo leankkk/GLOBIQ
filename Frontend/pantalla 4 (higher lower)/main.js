@@ -10,12 +10,6 @@ document.getElementById("btnFacil").addEventListener("click", () => {
   postEvent("iniciarMayorMenor", { modo }, iniciarMayorMenor);
 });
 
-document.getElementById("btnMedio").addEventListener("click", () => {
-  modo = "medio";
-  document.getElementById("popupModo").style.display = "none";
-  postEvent("iniciarMayorMenor", { modo }, iniciarMayorMenor);
-});
-
 document.getElementById("btnDificil").addEventListener("click", () => {
   modo = "dificil";
   document.getElementById("popupModo").style.display = "none";
@@ -216,6 +210,9 @@ let modal = document.getElementById("myModal");
 let mensajeResultado = document.getElementById("mensajeResultado");
 let btnJugar = document.getElementById("btnJugar");
 let btnPrincipal = document.getElementById("btnPrincipal");
+let popupRendirse = document.getElementById("popupRendirse");
+let respuestaRendirse = document.getElementById("respuestaRendirse");
+let detalleRendirse = document.getElementById("detalleRendirse");
 
 function mostrarPopUp(puntaje) {
     mensajeResultado.innerText = "¡Perdiste! Tu puntaje es: " + puntaje;
@@ -240,6 +237,34 @@ btnJugar.onclick = function() {
 btnPrincipal.onclick = function() {
     window.location.href = "../home/index.html";  
 }
+
+document.getElementById("btnRendirse").addEventListener("click", () => {
+  postEvent("evaluarRespuesta", {
+    input: false,
+    timer,
+    paisInicial,
+    labelpaisInicial,
+    pais2,
+    labelpais2,
+    dato,
+    valorInicial,
+    modo
+  }, (data) => {
+    const respuestaCorrecta = data.victoria ? "MAYOR" : "MENOR";
+    respuestaRendirse.textContent = respuestaCorrecta;
+    detalleRendirse.textContent =
+      `${labelpais2} era ${respuestaCorrecta.toLowerCase()} que ${labelpaisInicial}.`;
+    popupRendirse.style.display = "flex";
+  });
+});
+
+document.getElementById("btnReintentarRendirse").addEventListener("click", () => {
+  location.reload();
+});
+
+document.getElementById("btnInicioRendirse").addEventListener("click", () => {
+  window.location.href = "../home/index.html";
+});
 
 cuentaBtn.addEventListener("click", () => {
   if (usuario === "Sin usuario" || !usuario) {

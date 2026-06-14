@@ -19,6 +19,12 @@ let paisobjetivo;
 let listadescartados;
 let listaposibles;
 let usuario = sessionStorage.getItem("usuario") ?? "Sin usuario";
+let cuentaBtn = document.getElementById("cuentaBtn");
+let campoAdivinarPais = document.getElementById("inputAdivinarPais");
+let btnAdivinarPais = document.getElementById("btnAdivinarPais");
+let ayudaBtn = document.getElementById("ayudaBtn");
+let popupAyuda = document.getElementById("popupAyuda");
+let cerrarAyuda = document.getElementById("cerrarAyuda");
 let categoriasPreguntadas = [];
 let listaValores = [];
 let valoresPreguntados = [];
@@ -387,8 +393,8 @@ window.addEventListener("click", (e) => {
 });
 
 
-document.getElementById("btnAdivinarPais").addEventListener("click", () => {
-  const inputPais = document.getElementById("inputAdivinarPais").value.trim();
+btnAdivinarPais.addEventListener("click", () => {
+  const inputPais = campoAdivinarPais.value.trim();
 
   if (!inputPais) {
     mostrarError("Debes ingresar un país antes de adivinar.");
@@ -420,3 +426,80 @@ document.getElementById("btnAdivinarPais").addEventListener("click", () => {
     }
   }
 });
+
+campoAdivinarPais.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    btnAdivinarPais.click();
+  }
+});
+
+document.getElementById("btnRendirse").addEventListener("click", () => {
+  document.getElementById("respuestaRendirse").textContent =
+    labelPaisObjetivo || "Cargando...";
+  document.getElementById("popupRendirse").style.display = "flex";
+});
+
+document.getElementById("btnReintentarRendirse").addEventListener("click", () => {
+  location.reload();
+});
+
+document.getElementById("btnInicioRendirse").addEventListener("click", () => {
+  window.location.href = "../home/index.html";
+});
+
+ayudaBtn.addEventListener("click", () => {
+  popupAyuda.style.display = "flex";
+});
+
+cerrarAyuda.addEventListener("click", () => {
+  popupAyuda.style.display = "none";
+});
+
+popupAyuda.addEventListener("click", (event) => {
+  if (event.target === popupAyuda) {
+    popupAyuda.style.display = "none";
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && popupAyuda.style.display === "flex") {
+    popupAyuda.style.display = "none";
+  }
+});
+
+const nombresRegiones = typeof Intl.DisplayNames === "function"
+  ? new Intl.DisplayNames(["es"], { type: "region" })
+  : null;
+const tooltipPais = document.createElement("div");
+tooltipPais.className = "mapa-tooltip";
+document.body.appendChild(tooltipPais);
+
+document.querySelectorAll("svg .land").forEach((pais) => {
+  const codigo = pais.id.toUpperCase();
+  const nombre = nombresRegiones ? nombresRegiones.of(codigo) : codigo;
+  const etiqueta = nombre && nombre !== codigo ? nombre : codigo;
+
+  pais.setAttribute("title", etiqueta);
+  pais.addEventListener("mouseenter", () => {
+    tooltipPais.textContent = etiqueta;
+    tooltipPais.classList.add("visible");
+  });
+  pais.addEventListener("mousemove", (event) => {
+    tooltipPais.style.left = `${event.clientX + 12}px`;
+    tooltipPais.style.top = `${event.clientY + 12}px`;
+  });
+  pais.addEventListener("mouseleave", () => {
+    tooltipPais.classList.remove("visible");
+  });
+});
+
+if (cuentaBtn) {
+  cuentaBtn.addEventListener("click", () => {
+    if (usuario === "Sin usuario" || !usuario) {
+      window.location.href = "../pantalla 6 (login)/index.html";
+    } else {
+      window.location.href = "../cuenta/index.html";
+    }
+  });
+}

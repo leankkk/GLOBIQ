@@ -1,18 +1,39 @@
 
 .menu-container {
   position: fixed;
-  top: 15px;
-  right: 20px;
+  top: 30px;
+  right: 28px;
+  width: 42px;
+  height: 42px;
   z-index: 1000;
 }
 
 
 .menu-icon {
-  font-size: 32px;
+  position: relative;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+  line-height: 1;
   cursor: pointer;
   user-select: none;
   color: white; 
   transition: transform 0.2s;
+}
+
+.menu-icon::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 9px;
+  width: 34px;
+  height: 4px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 11px 0 #fff, 0 22px 0 #fff;
 }
 
 .menu-icon:hover {
@@ -28,7 +49,7 @@
   border-radius: 10px;
   position: absolute;
   right: 0;
-  top: 40px;
+  top: 42px;
   width: 180px;
   display: none;
   flex-direction: column;
@@ -51,9 +72,43 @@
   background-color: #444;
   padding-left: 20px;
 }
+.menu-options a.actual,
+.menu-options a.actual:hover {
+  color: #b8b8b8;
+  background-color: #3a3a3a;
+  cursor: default;
+  pointer-events: none;
+  padding-left: 15px;
+}
 
 .menu-container:hover .menu-options {
   display: flex;
+}
+
+.cuenta {
+  position: fixed;
+  top: 30px;
+  right: 84px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.cuenta img {
+  width: 42px;
+  height: 42px;
+  max-width: none;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.cuenta:hover {
+  transform: scale(1.1);
 }
 
 
@@ -269,6 +324,108 @@ body {
   fill: #e57373;
 }
 
+.mapa-tooltip {
+  position: fixed;
+  z-index: 6000;
+  display: none;
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.86);
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.ayuda {
+  position: fixed;
+  right: 3vw;
+  bottom: 3vh;
+  z-index: 1100;
+  width: clamp(42px, 3vw, 56px);
+  height: clamp(42px, 3vw, 56px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.ayuda img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.ayuda:hover {
+  transform: scale(1.1);
+}
+
+.popup-ayuda-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 8000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.62);
+}
+
+.popup-ayuda-content {
+  position: relative;
+  width: min(480px, 100%);
+  padding: 34px;
+  box-sizing: border-box;
+  border: 2px solid #111;
+  border-radius: 14px;
+  background: #fff;
+  color: #222;
+  text-align: center;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+}
+
+.popup-ayuda-content h2 {
+  margin: 0 0 5px;
+  color: #05355B;
+  font-size: 28px;
+}
+
+.popup-ayuda-content h3 {
+  margin: 0 0 20px;
+  color: #333;
+  font-size: 20px;
+}
+
+.popup-ayuda-content p {
+  margin: 10px 0;
+  color: #444;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.cerrar-ayuda {
+  position: absolute;
+  top: 10px;
+  right: 13px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #333;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.mapa-tooltip.visible {
+  display: block;
+}
+
 
 .input-slot {
   width: 120px;
@@ -374,6 +531,7 @@ body {
   display: flex;
   gap: 10px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 #inputAdivinarPais {
@@ -382,6 +540,82 @@ body {
   border: 2px solid #bbb;
   border-radius: 6px;
   font-family: "Inter", sans-serif;
+}
+
+#btnAdivinarPais,
+.adivinar-pais-box .btn-rendirse {
+  padding: 9px 15px;
+  border: 0;
+  border-radius: 7px;
+  background: #000;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+#btnAdivinarPais:hover,
+.adivinar-pais-box .btn-rendirse:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+.adivinar-pais-box .btn-rendirse {
+  border: 2px solid #fff;
+  background: transparent;
+}
+
+.popup-rendirse-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 7000;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.62);
+}
+
+.popup-rendirse-content {
+  width: min(420px, calc(100% - 40px));
+  padding: 34px;
+  border-radius: 16px;
+  background: #fff;
+  color: #222;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+}
+
+.popup-rendirse-content p {
+  margin: 0 0 8px;
+  color: #666;
+  font-weight: 700;
+}
+
+.popup-rendirse-content h2 {
+  margin: 0;
+  color: #05355B;
+  font-size: 34px;
+}
+
+.popup-rendirse-acciones {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.popup-rendirse-acciones button {
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 7px;
+  background: #000;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 

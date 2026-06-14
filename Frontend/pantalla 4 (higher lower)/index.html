@@ -12,7 +12,10 @@
 <body>
     <header class="header">
       <h1 id="categoriaNombre">Cargando...</h1>
+      <div class="acciones-superiores">
         <button id="btnCambiarCategoria" class="boton2">Cambiar de categoría (3)</button>
+        <button id="btnRendirse" class="btn-rendirse">Rendirse</button>
+      </div>
     </header>
 
     <link
@@ -20,7 +23,9 @@
   href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css"/>
 
 <div class="logo">
-  <img src="./Vector.png" alt="Logo">
+  <a href="../home/index.html" aria-label="Ir al inicio">
+    <img src="./Vector (1).png" alt="GlobiQ">
+  </a>
 </div>
    
    
@@ -30,6 +35,7 @@
     <ul class="menu-options">
       <li><a href="../home/index.html">Inicio</a></li>
       <li><a href="../pantalla%205%20(modo%20diario)/index.html">Modo diario</a></li>
+      <li><a class="actual" aria-disabled="true" tabindex="-1">Mayor o Menor</a></li>
       <li><a href="../pantalla%203%20(juego%20bloques)/index.html">Modo Detective</a></li>
       <li><a href="../pantalla%206%20(login)/index.html">Login</a></li>
       <li><a href="../pantalla%207%20(registro)/index.html">Registro</a></li>
@@ -89,11 +95,23 @@
         </div>
     </main>
 
+    <div id="popupRendirse" class="popup popup-rendirse">
+      <div class="popup-content popup-content-rendirse">
+        <p>La respuesta correcta era</p>
+        <h2 id="respuestaRendirse"></h2>
+        <p id="detalleRendirse"></p>
+        <div class="popup-rendirse-acciones">
+          <button id="btnReintentarRendirse" class="boton">Volver a jugar</button>
+          <button id="btnInicioRendirse" class="boton">Volver al inicio</button>
+        </div>
+      </div>
+    </div>
+
 <h3>Racha:</h3> <h2 id="rachaContador">0</h2>
 <br>
 
 <div class="ayuda">
-<img src="../home/ph_question-fill.png" alt="Cómo jugar">
+<img src="./ph_question-fill (1).png" alt="Cómo jugar">
 </div>
 
 <div id="popup" class="popup">
@@ -125,13 +143,11 @@
     <h3>Elegí un modo</h3>
     <p style="font-size:0.9em; color:#555;">
       🟢 Fácil: población, territorio e inflación.<br>
-      🟡 Medio: más categorías conocidas.<br>
-      🔴 Difícil: categorías random.
+      🔵 Normal: todas las categorías.
     </p>
     <div style="display:flex; gap:1rem; justify-content:center; margin-top:1rem; flex-wrap:wrap;">
       <button id="btnFacil" class="boton">🟢 Fácil</button>
-      <button id="btnMedio" class="boton">🟡 Medio</button>
-      <button id="btnDificil" class="boton">🔴 Difícil</button>
+      <button id="btnDificil" class="boton">🔵 Normal</button>
     </div>
   </div>
 </div>
