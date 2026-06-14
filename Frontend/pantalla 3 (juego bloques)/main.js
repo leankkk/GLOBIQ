@@ -480,10 +480,25 @@ const tooltipPais = document.createElement("div");
 tooltipPais.className = "mapa-tooltip";
 document.body.appendChild(tooltipPais);
 
-document.querySelectorAll("svg .land").forEach((pais) => {
+function obtenerNombrePais(pais) {
   const codigo = pais.id.toUpperCase();
-  const nombre = nombresRegiones ? nombresRegiones.of(codigo) : codigo;
-  const etiqueta = nombre && nombre !== codigo ? nombre : codigo;
+
+  if (nombresRegiones && /^[A-Z]{2}$/.test(codigo)) {
+    try {
+      const nombreTraducido = nombresRegiones.of(codigo);
+      if (nombreTraducido && nombreTraducido !== codigo) {
+        return nombreTraducido;
+      }
+    } catch (error) {
+      // Algunos territorios del SVG usan códigos no estándar.
+    }
+  }
+
+  return pais.getAttribute("title") || codigo;
+}
+
+document.querySelectorAll("svg .land").forEach((pais) => {
+  const etiqueta = obtenerNombrePais(pais);
 
   pais.setAttribute("title", etiqueta);
   pais.addEventListener("mouseenter", () => {
