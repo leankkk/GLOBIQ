@@ -202,10 +202,6 @@ btnRendirse.addEventListener("click", () => {
   popupRendirse.style.display = "flex";
 });
 
-document.getElementById("btnReintentarRendirse").addEventListener("click", () => {
-  location.reload();
-});
-
 document.getElementById("btnInicioRendirse").addEventListener("click", () => {
   window.location.href = "../home/index.html";
 });

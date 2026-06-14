@@ -41,6 +41,12 @@ mensajeResultado.innerText =
   " preguntas. Puntaje: " +
   puntaje; modal.style.display = "block";
 }
+
+function mostrarDerrota() {
+  mensajeResultado.innerText =
+    "¡Perdiste! El país era " + (labelPaisObjetivo || "desconocido") + ".";
+  modal.style.display = "block";
+}
   
 document.getElementById("btnJugar").addEventListener("click", () => {
   location.reload();
@@ -420,9 +426,9 @@ btnAdivinarPais.addEventListener("click", () => {
     if (intentosDeAdivinar !== 3) {
       mostrarError(`Incorrecto. Te quedan ${3-intentosDeAdivinar} intento${3-intentosDeAdivinar === 1 ? "" : "s"}.`);
     } else {
-      mostrarError("Incorrecto. No te quedan más intentos.");
-      document.getElementById("btnAdivinarPais").disabled = true;
-      //document.getElementById("btnAdivinar").disabled = true;
+      mostrarDerrota();
+      btnAdivinarPais.disabled = true;
+      document.getElementById("btnAdivinar").disabled = true;
     }
   }
 });

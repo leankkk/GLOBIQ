@@ -328,6 +328,15 @@ body {
   background-color: #333;
 }
 
+.nota-records {
+  max-width: 430px;
+  margin: 16px auto 0;
+  color: #666;
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
+}
+
 .modal {
   display: none; 
   position: fixed; 

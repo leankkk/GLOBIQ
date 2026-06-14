@@ -56,26 +56,31 @@ body {
 
 .bienvenida-banner {
   position: fixed;
-  top: 18px;
+  top: 22px;
   left: 50%;
   z-index: 3000;
   display: flex;
   align-items: center;
-  gap: 22px;
-  min-width: 320px;
-  padding: 13px 14px 13px 20px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
-  background: #fff;
-  color: #05355B;
+  justify-content: space-between;
+  gap: 28px;
+  width: min(560px, calc(100% - 48px));
+  min-height: 64px;
+  padding: 12px 14px 12px 24px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(12, 16, 22, 0.82);
+  color: #fff;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   font-family: "Inter", sans-serif;
-  font-size: 16px;
+  font-size: 21px;
   font-weight: 800;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.38);
   opacity: 0;
   pointer-events: none;
-  transform: translate(-50%, -18px);
-  transition: opacity 0.25s, transform 0.25s;
+  transform: translate(-50%, -20px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
 }
 
 .bienvenida-banner.visible {
@@ -85,14 +90,24 @@ body {
 }
 
 .bienvenida-banner button {
-  width: 28px;
-  height: 28px;
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  margin-left: auto;
+  padding: 0;
   border: 0;
+  border-radius: 6px;
   background: transparent;
-  color: #333;
-  font-size: 24px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 30px;
   line-height: 1;
   cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+
+.bienvenida-banner button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
 }
 
 
@@ -275,7 +290,9 @@ body {
 
     .bienvenida-banner {
       top: 12px;
-      min-width: 0;
       width: calc(100% - 28px);
+      min-height: 58px;
+      padding-left: 18px;
+      font-size: 18px;
     }
   }

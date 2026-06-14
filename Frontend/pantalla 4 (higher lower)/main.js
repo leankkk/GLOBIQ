@@ -1,4 +1,5 @@
 let modo = null;
+let registraRecords = false;
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("popupModo").style.display = "flex";
@@ -6,12 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("btnFacil").addEventListener("click", () => {
   modo = "facil";
+  registraRecords = false;
   document.getElementById("popupModo").style.display = "none";
   postEvent("iniciarMayorMenor", { modo }, iniciarMayorMenor);
 });
 
 document.getElementById("btnDificil").addEventListener("click", () => {
   modo = "dificil";
+  registraRecords = true;
   document.getElementById("popupModo").style.display = "none";
   postEvent("iniciarMayorMenor", { modo }, iniciarMayorMenor);
 });
@@ -139,7 +142,7 @@ function iniciarMayorMenor(data) {
 }
 
 async function enviarstats(){
-  if (modo !== "facil"){
+  if (registraRecords){
     let nombreAGuardar = usuario || "Sin usuario";
     postEvent("enviarStatsAlFront", {nombre: nombreAGuardar}, getStats);
   }}
@@ -215,7 +218,9 @@ let respuestaRendirse = document.getElementById("respuestaRendirse");
 let detalleRendirse = document.getElementById("detalleRendirse");
 
 function mostrarPopUp(puntaje) {
-    mensajeResultado.innerText = "¡Perdiste! Tu puntaje es: " + puntaje;
+    mensajeResultado.innerText = registraRecords
+      ? "¡Perdiste! Tu puntaje es: " + puntaje
+      : "¡Perdiste! Tu racha final fue: " + puntaje;
     modal.style.display = "block"; 
 }
 
