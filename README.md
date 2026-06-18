@@ -1,4 +1,3 @@
-# proyecto GLOBIQ
 proyecto GLOBIQ created by GitHub Classroom
 Leandro Kon, Martin Iud, Lucio Camdessus Y Julian Marcozzi.
 https://www.figma.com/design/MDMVdMrVEeAOhVgEwmNtvP/PROYECTO-BANDERA?node-id=0-1&t=4MfFIEaziXUHbZRy-1
