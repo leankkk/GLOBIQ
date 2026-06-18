@@ -246,7 +246,7 @@ export function iniciarMayorMenor(data){
 let timer = 0;
 
 let paisInicial;
-if (data.paisInicial === undefined) paisInicial = paisdiario();
+if (data.paisInicial === undefined) paisInicial = paisrandom();
 else paisInicial = data.paisInicial;
 
   let pais2 = paisInicial;
