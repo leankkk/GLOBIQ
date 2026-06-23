@@ -17,9 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let contraseña2 = document.getElementById('password2');
   let botonRegistrar = document.getElementById('loginBtn');
   let usuarioInput = document.getElementById('usuario');
-  let popup = document.getElementById('popupBienvenida');
-  let mensaje = document.getElementById('mensajeBienvenida');
-  let botonAceptar = document.getElementById('btnAceptarPopup');
 
   if (!botonRegistrar) {
     console.error("No se encontró el botón de registrarse.");
@@ -45,12 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
     postEvent("crearCuenta", data, (respuesta) => {
       if (respuesta.ok) {
         sessionStorage.setItem("usuario", usuario);
-        mensaje.textContent = `¡Bienvenido, ${usuario}!`;
-        popup.style.display = "flex";
-        botonAceptar.addEventListener("click", () => {
-          popup.style.display = "none";
-          window.location.href = "../home/index.html";
-        });
+        sessionStorage.setItem("mostrarBienvenida", "true");
+        window.location.href = "../home/index.html";
       } else {
         alert("Error: " + respuesta.mensaje);
       }

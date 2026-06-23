@@ -1,23 +1,56 @@
-let modo = null;
-let registraRecords = false;
+const STORAGE_MODO_MAYOR_MENOR = "modoMayorMenor";
+let modo = sessionStorage.getItem(STORAGE_MODO_MAYOR_MENOR);
+let registraRecords = modo === "dificil";
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("popupModo").style.display = "flex";
-});
+function hayUsuarioLogueado() {
+  return Boolean(usuario && usuario !== "Sin usuario");
+}
 
-document.getElementById("btnFacil").addEventListener("click", () => {
-  modo = "facil";
-  registraRecords = false;
+function mostrarAvisoSinSesion() {
+  if (hayUsuarioLogueado()) return;
+
+  const aviso = document.createElement("div");
+  aviso.className = "aviso-sesion";
+  aviso.textContent = "No iniciaste sesión. No se guardarán tus stats.";
+  document.body.appendChild(aviso);
+
+  requestAnimationFrame(() => aviso.classList.add("visible"));
+  setTimeout(() => {
+    aviso.classList.remove("visible");
+    setTimeout(() => aviso.remove(), 300);
+  }, 4000);
+}
+
+function nombreModoActual() {
+  return modo === "facil" ? "Fácil" : "Normal";
+}
+
+function actualizarBotonModo() {
+  const btnCambiarModo = document.getElementById("btnCambiarModo");
+  if (btnCambiarModo) {
+    btnCambiarModo.textContent = "Modo: " + nombreModoActual();
+  }
+}
+
+function reiniciarEstadoDeRonda() {
+  comparacionesHechas = 0;
+  categoriasAcertadas = [];
+  paisesAcertados = [];
+  intentosCambiarCategoria = 3;
+  btnCambiarCategoria.disabled = false;
+  btnCambiarCategoria.innerText = "Cambiar de categoría (3)";
+  rachaContador.innerText = "0";
+}
+
+function elegirModo(nuevoModo) {
+  modo = nuevoModo;
+  registraRecords = modo === "dificil";
+  sessionStorage.setItem(STORAGE_MODO_MAYOR_MENOR, modo);
   document.getElementById("popupModo").style.display = "none";
+  actualizarBotonModo();
+  reiniciarEstadoDeRonda();
   postEvent("iniciarMayorMenor", { modo }, iniciarMayorMenor);
-});
-
-document.getElementById("btnDificil").addEventListener("click", () => {
-  modo = "dificil";
-  registraRecords = true;
-  document.getElementById("popupModo").style.display = "none";
-  postEvent("iniciarMayorMenor", { modo }, iniciarMayorMenor);
-});
+}
 
 let flag1 = document.getElementById("flag1");
 let flag2 = document.getElementById("flag2");
@@ -33,6 +66,7 @@ let ayudaBtn = document.querySelector('.ayuda');
 let popupAyuda = document.getElementById("popup");
 let cerrarBtn = document.querySelector('.cerrar'); 
 let usuario = sessionStorage.getItem("usuario");
+let btnCambiarModo = document.getElementById("btnCambiarModo");
 
 let infousuario;
 let categoriasAcertadas = [];
@@ -52,6 +86,29 @@ let timer;
 let racha = 0;
 let puntaje = 0;
 let paises = [];  
+
+document.addEventListener("DOMContentLoaded", () => {
+  mostrarAvisoSinSesion();
+  actualizarBotonModo();
+
+  if (modo) {
+    elegirModo(modo);
+  } else {
+    document.getElementById("popupModo").style.display = "flex";
+  }
+});
+
+document.getElementById("btnFacil").addEventListener("click", () => {
+  elegirModo("facil");
+});
+
+document.getElementById("btnDificil").addEventListener("click", () => {
+  elegirModo("dificil");
+});
+
+btnCambiarModo.addEventListener("click", () => {
+  document.getElementById("popupModo").style.display = "flex";
+});
 
 function compararListasAcertados(info, esCategoria){
     if (esCategoria){
@@ -142,9 +199,8 @@ function iniciarMayorMenor(data) {
 }
 
 async function enviarstats(){
-  if (registraRecords){
-    let nombreAGuardar = usuario || "Sin usuario";
-    postEvent("enviarStatsAlFront", {nombre: nombreAGuardar}, getStats);
+  if (registraRecords && hayUsuarioLogueado()){
+    postEvent("enviarStatsAlFront", {nombre: usuario}, getStats);
   }}
 
 function getStats(data){
@@ -243,6 +299,10 @@ btnPrincipal.onclick = function() {
     window.location.href = "../home/index.html";  
 }
 
+document.querySelector("#myModal .close").addEventListener("click", () => {
+  window.location.href = "../home/index.html";
+});
+
 document.getElementById("btnRendirse").addEventListener("click", () => {
   postEvent("evaluarRespuesta", {
     input: false,
@@ -272,9 +332,5 @@ document.getElementById("btnInicioRendirse").addEventListener("click", () => {
 });
 
 cuentaBtn.addEventListener("click", () => {
-  if (usuario === "Sin usuario" || !usuario) {
-    window.location.href = "/login";
-  } else {
-    window.location.href = "/cuenta";
-  }
+  window.location.href = "../cuenta/index.html";
 });

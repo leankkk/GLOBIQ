@@ -20,6 +20,37 @@ let intentosFallidos = [];
 let paisDiario;
 let intentos = 0;
 
+function hayUsuarioLogueado() {
+  return Boolean(usuario && usuario !== "Sin usuario");
+}
+
+function mostrarAvisoSinSesion() {
+  if (hayUsuarioLogueado()) return;
+
+  const aviso = document.createElement("div");
+  aviso.className = "aviso-sesion";
+  aviso.textContent = "No iniciaste sesión. No se guardarán tus stats.";
+  document.body.appendChild(aviso);
+
+  requestAnimationFrame(() => aviso.classList.add("visible"));
+  setTimeout(() => {
+    aviso.classList.remove("visible");
+    setTimeout(() => aviso.remove(), 300);
+  }, 4000);
+}
+
+function desactivarAutofillDeJuego() {
+  document.querySelectorAll("input").forEach((campo) => {
+    campo.setAttribute("autocomplete", "off");
+    campo.setAttribute("autocorrect", "off");
+    campo.setAttribute("autocapitalize", "off");
+    campo.setAttribute("spellcheck", "false");
+  });
+}
+
+desactivarAutofillDeJuego();
+mostrarAvisoSinSesion();
+
 function calcularPromedioPuntaje(stats) {
   let sumatoria = 0;
 
@@ -31,6 +62,7 @@ function calcularPromedioPuntaje(stats) {
 }
 
 async function enviarstats() {
+  if (!hayUsuarioLogueado()) return;
   postEvent("enviarStatsAlFront", { nombre: usuario }, getStats);
 }
 
@@ -209,20 +241,7 @@ document.getElementById("btnInicioRendirse").addEventListener("click", () => {
 if (cuentaBtn) {
 
   cuentaBtn.addEventListener("click", () => {
-
-    if (
-      usuario === "Sin usuario" ||
-      !usuario
-    ) {
-
-      window.location.href =
-        "/pantalla 6 (login)/index.html";
-
-    } else {
-
-      window.location.href =
-        "/cuenta/index.html";
-    }
+    window.location.href = "../cuenta/index.html";
   });
 }
 
