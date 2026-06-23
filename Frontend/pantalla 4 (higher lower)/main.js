@@ -52,6 +52,44 @@ function elegirModo(nuevoModo) {
   postEvent("iniciarMayorMenor", { modo }, iniciarMayorMenor);
 }
 
+function datoInvalido(valor) {
+  return valor === undefined || valor === null || valor === "" || valor === "undefined";
+}
+
+function textoDato(valor, fallback = "sin dato disponible") {
+  return datoInvalido(valor) ? fallback : String(valor);
+}
+
+function rondaInvalida(data) {
+  if (!data) return true;
+  if (datoInvalido(data.paisInicial) || datoInvalido(data.pais2)) return true;
+  if (data.paisInicial === data.pais2) return true;
+  if (datoInvalido(data.labelpaisInicial) || datoInvalido(data.labelpais2)) return true;
+  if (data.labelpaisInicial === data.labelpais2) return true;
+  if (datoInvalido(data.dato) || datoInvalido(data.label)) return true;
+  if (datoInvalido(data.valorInicial) || datoInvalido(data.labelvalorInicial)) return true;
+  return false;
+}
+
+function estadoActualInvalido() {
+  return datoInvalido(paisInicial) ||
+    datoInvalido(pais2) ||
+    paisInicial === pais2 ||
+    datoInvalido(labelpaisInicial) ||
+    datoInvalido(labelpais2) ||
+    labelpaisInicial === labelpais2 ||
+    datoInvalido(dato) ||
+    datoInvalido(valorInicial);
+}
+
+function pedirRondaNueva() {
+  paisInicialNombre.innerText = "Cargando...";
+  paisInicialDato.innerText = "Cargando...";
+  pais2Nombre.innerText = "Cargando...";
+  categoriaNombre.innerText = "Cargando...";
+  postEvent("iniciarMayorMenor", { modo }, iniciarMayorMenor);
+}
+
 let flag1 = document.getElementById("flag1");
 let flag2 = document.getElementById("flag2");
 let paisInicialNombre = document.getElementById("nombrePaisIZQ");
@@ -180,6 +218,11 @@ function cambiarCategoria(){
 }
 
 function iniciarMayorMenor(data) {
+    if (rondaInvalida(data)) {
+        pedirRondaNueva();
+        return;
+    }
+
     paisInicial = data.paisInicial; 
     labelpaisInicial = data.labelpaisInicial;
     pais2 = data.pais2;
@@ -223,7 +266,17 @@ function getStats(data){
 function guardarStats(){};
 
 function evaluarResultado(data){
+    if (typeof data.victoria !== "boolean") {
+        iniciarMayorMenor(data);
+        return;
+    }
+
     if (data.victoria) {
+        if (rondaInvalida(data)) {
+            pedirRondaNueva();
+            return;
+        }
+
         paisInicial = data.paisInicial; 
         pais2 = data.pais2;
         dato = data.dato;
@@ -251,18 +304,26 @@ function evaluarResultado(data){
     else {
         mostrarPopUp(data.timer);
         if (timer >= 1) enviarstats();
-        pais2Nombre.innerText = labelpais2 + ": " + data.valorPais2;
+        pais2Nombre.innerText = labelpais2 + ": " + textoDato(data.valorPais2);
     }
 }
 
-botonMayor.addEventListener("click", () => {
-    postEvent("evaluarRespuesta", {input: false, timer, paisInicial, labelpaisInicial, pais2, labelpais2, dato, valorInicial, modo}, evaluarResultado);
+function enviarRespuestaMayorMenor(input) {
+    if (estadoActualInvalido()) {
+        pedirRondaNueva();
+        return;
+    }
+
+    postEvent("evaluarRespuesta", {input, timer, paisInicial, labelpaisInicial, pais2, labelpais2, dato, valorInicial, modo}, evaluarResultado);
     comparacionesHechas++;
+}
+
+botonMayor.addEventListener("click", () => {
+    enviarRespuestaMayorMenor(false);
 });
 
 botonMenor.addEventListener("click", () => {
-    postEvent("evaluarRespuesta", {input: true, timer, paisInicial, labelpaisInicial, pais2, labelpais2, dato, valorInicial, modo}, evaluarResultado);
-    comparacionesHechas++;
+    enviarRespuestaMayorMenor(true);
 });
 
 let modal = document.getElementById("myModal");

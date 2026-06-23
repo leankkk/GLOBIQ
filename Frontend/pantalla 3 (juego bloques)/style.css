@@ -242,6 +242,7 @@ body {
   align-items: center;
   color: #777;
   font-style: italic;
+  overflow: hidden;
 }
 
 
@@ -281,6 +282,8 @@ body {
   user-select: none;
   font-family: "Inter", sans-serif;
   font-size: 0.9em;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .logo {
@@ -296,16 +299,36 @@ body {
   object-fit: contain;    
   filter: drop-shadow(0 0 3px rgba(0,0,0,0.4)); 
 }
-#MOM {
+.bloque-comparacion {
   background-color: #a9dcff;
   border-color: #6faedc;
   color: #05355B;
   font-weight: bold;
 }
 
-#MOM:hover {
+.bloque-comparacion:hover {
   background-color: #bfe6ff;
   transform: scale(1.05);
+}
+
+.slot .bloque {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  margin: 0 !important;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-style: normal;
+}
+
+.slot .bloque:hover,
+.slot .bloque:active {
+  transform: none;
 }
 
 .bloque:active {

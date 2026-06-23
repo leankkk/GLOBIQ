@@ -265,8 +265,9 @@ slots.forEach(slot => {
     e.preventDefault();
 
     // Restricciones específicas del bloque MOM
-    if (dragged && dragged.id === "MOM" && slot.id !== "slot2") return;
-    if (dragged && dragged.id !== "MOM" && slot.id === "slot2") return;
+    const esComparacion = dragged && dragged.classList.contains("bloque-comparacion");
+    if (dragged && esComparacion && slot.id !== "slot2") return;
+    if (dragged && !esComparacion && slot.id === "slot2") return;
 
     slot.classList.add('hovered');
   });
@@ -280,8 +281,9 @@ slots.forEach(slot => {
     slot.classList.remove('hovered');
 
     // Restricciones específicas del bloque MOM
-    if (dragged && dragged.id === "MOM" && slot.id !== "slot2") return;
-    if (dragged && dragged.id !== "MOM" && slot.id === "slot2") return;
+    const esComparacion = dragged && dragged.classList.contains("bloque-comparacion");
+    if (dragged && esComparacion && slot.id !== "slot2") return;
+    if (dragged && !esComparacion && slot.id === "slot2") return;
 
     // Si el slot ya tiene algo, lo devuelve al contenedor de bloques
     if (slot.firstChild) {
