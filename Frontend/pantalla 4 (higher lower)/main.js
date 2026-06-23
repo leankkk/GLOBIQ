@@ -1,5 +1,4 @@
-const STORAGE_MODO_MAYOR_MENOR = "modoMayorMenor";
-let modo = sessionStorage.getItem(STORAGE_MODO_MAYOR_MENOR);
+let modo = null;
 let registraRecords = modo === "dificil";
 
 function hayUsuarioLogueado() {
@@ -42,14 +41,22 @@ function reiniciarEstadoDeRonda() {
   rachaContador.innerText = "0";
 }
 
-function elegirModo(nuevoModo) {
-  modo = nuevoModo;
-  registraRecords = modo === "dificil";
-  sessionStorage.setItem(STORAGE_MODO_MAYOR_MENOR, modo);
-  document.getElementById("popupModo").style.display = "none";
+function empezarRondaConModoActual() {
+  if (!modo) {
+    document.getElementById("popupModo").style.display = "flex";
+    return;
+  }
+
   actualizarBotonModo();
   reiniciarEstadoDeRonda();
   postEvent("iniciarMayorMenor", { modo }, iniciarMayorMenor);
+}
+
+function elegirModo(nuevoModo) {
+  modo = nuevoModo;
+  registraRecords = modo === "dificil";
+  document.getElementById("popupModo").style.display = "none";
+  empezarRondaConModoActual();
 }
 
 function datoInvalido(valor) {
@@ -128,12 +135,7 @@ let paises = [];
 document.addEventListener("DOMContentLoaded", () => {
   mostrarAvisoSinSesion();
   actualizarBotonModo();
-
-  if (modo) {
-    elegirModo(modo);
-  } else {
-    document.getElementById("popupModo").style.display = "flex";
-  }
+  document.getElementById("popupModo").style.display = "flex";
 });
 
 document.getElementById("btnFacil").addEventListener("click", () => {
@@ -237,6 +239,7 @@ function iniciarMayorMenor(data) {
     paisInicialDato.innerText = labelvalorInicial;
     pais2Nombre.innerText = labelpais2;
     categoriaNombre.innerText = label;
+    rachaContador.innerText = timer ?? 0;
     establecerBandera(data.idPaisInicial, true);
     establecerBandera(data.idPais2, false);
 }
@@ -281,7 +284,10 @@ function evaluarResultado(data){
         pais2 = data.pais2;
         dato = data.dato;
         labelpaisInicial = data.labelpaisInicial;
+        labelpais2 = data.labelpais2;
+        valorInicial = data.valorInicial;
         labelvalorInicial = data.labelvalorInicial;
+        label = data.label;
         timer = data.timer;
         modo = data.modo ?? modo;
         paisInicialNombre.innerText = data.labelpaisInicial;
@@ -353,7 +359,7 @@ document.querySelector(".cerrar").addEventListener("click", () => {
 
 btnJugar.onclick = function() {
     modal.style.display = "none";
-    location.reload();  
+    empezarRondaConModoActual();
 }
 
 btnPrincipal.onclick = function() {
@@ -385,7 +391,8 @@ document.getElementById("btnRendirse").addEventListener("click", () => {
 });
 
 document.getElementById("btnReintentarRendirse").addEventListener("click", () => {
-  location.reload();
+  popupRendirse.style.display = "none";
+  empezarRondaConModoActual();
 });
 
 document.getElementById("btnInicioRendirse").addEventListener("click", () => {

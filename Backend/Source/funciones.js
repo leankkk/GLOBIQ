@@ -53,7 +53,7 @@ function mezclarLista(lista) {
 }
 
 function tieneDatoNumerico(pais, dato) {
-    return typeof traer(pais, dato) === "number";
+    return Number.isFinite(traer(pais, dato));
 }
 
 function categoriasDelModo(modo) {
@@ -68,8 +68,9 @@ function categoriaValidaParaPais(modo, pais, datoAEvitar) {
     for (let i = 0; i < categorias.length; i++) {
         const dato = categorias[i];
         if (dato === datoAEvitar) continue;
-        if (!tieneDatoNumerico(pais, dato)) continue;
-        if (paisesConDato(dato, pais).length > 0) return dato;
+        const valor = traer(pais, dato);
+        if (!Number.isFinite(valor)) continue;
+        if (paisesConDato(dato, pais, valor).length > 0) return dato;
     }
 
     return undefined;
@@ -81,20 +82,25 @@ function categoriaValidaParaPaises(modo, pais1, pais2, datoAEvitar) {
     for (let i = 0; i < categorias.length; i++) {
         const dato = categorias[i];
         if (dato === datoAEvitar) continue;
-        if (tieneDatoNumerico(pais1, dato) && tieneDatoNumerico(pais2, dato)) return dato;
+        const valor1 = traer(pais1, dato);
+        const valor2 = traer(pais2, dato);
+        if (Number.isFinite(valor1) && Number.isFinite(valor2) && valor1 !== valor2) return dato;
     }
 
     return undefined;
 }
 
-function paisesConDato(dato, paisAExcluir) {
+function paisesConDato(dato, paisAExcluir, valorAExcluir) {
     return listapaises.filter((pais) => {
-        return pais !== paisAExcluir && tieneDatoNumerico(pais, dato);
+        const valor = traer(pais, dato);
+        if (pais === paisAExcluir || !Number.isFinite(valor)) return false;
+        if (valorAExcluir !== undefined && valor === valorAExcluir) return false;
+        return true;
     });
 }
 
-function paisAleatorioConDato(dato, paisAExcluir) {
-    const candidatos = paisesConDato(dato, paisAExcluir);
+function paisAleatorioConDato(dato, paisAExcluir, valorAExcluir) {
+    const candidatos = paisesConDato(dato, paisAExcluir, valorAExcluir);
     if (candidatos.length === 0) return undefined;
     return candidatos[Math.floor(Math.random() * candidatos.length)];
 }
@@ -109,7 +115,7 @@ function crearRondaMayorMenor({ modo, paisInicial, dato, cambiarDato = false, ti
 
     if (!paisBase || !data[paisBase]) paisBase = paisrandom();
 
-    if (cambiarDato || !categoria || !tieneDatoNumerico(paisBase, categoria) || paisesConDato(categoria, paisBase).length === 0) {
+    if (cambiarDato || !categoria || !tieneDatoNumerico(paisBase, categoria) || paisesConDato(categoria, paisBase, traer(paisBase, categoria)).length === 0) {
         categoria = categoriaValidaParaPais(modo, paisBase, cambiarDato ? categoria : undefined);
     }
 
@@ -123,16 +129,17 @@ function crearRondaMayorMenor({ modo, paisInicial, dato, cambiarDato = false, ti
 
     if (!categoria) return undefined;
 
-    let pais2 = paisAleatorioConDato(categoria, paisBase);
+    let valorInicial = traer(paisBase, categoria);
+    let pais2 = paisAleatorioConDato(categoria, paisBase, valorInicial);
 
     if (!pais2) {
         paisBase = paisAleatorioParaCategoria(categoria);
-        pais2 = paisAleatorioConDato(categoria, paisBase);
+        valorInicial = traer(paisBase, categoria);
+        pais2 = paisAleatorioConDato(categoria, paisBase, valorInicial);
     }
 
     if (!paisBase || !pais2 || paisBase === pais2) return undefined;
-
-    const valorInicial = traer(paisBase, categoria);
+    if (valorInicial === traer(pais2, categoria)) return undefined;
 
     return {
         paisInicial: paisBase,
@@ -402,7 +409,7 @@ let modo = data.modo ?? "dificil";
 let valorInicial = traer(paisInicial, dato);
 let valorPais2 = traer(pais2, dato);
 
-if (!paisInicial || !pais2 || paisInicial === pais2 || typeof valorInicial !== "number" || typeof valorPais2 !== "number") {
+if (!paisInicial || !pais2 || paisInicial === pais2 || !Number.isFinite(valorInicial) || !Number.isFinite(valorPais2) || valorInicial === valorPais2) {
     return iniciarMayorMenor({ modo: modo, timer: timer });
 }
 
