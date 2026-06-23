@@ -184,6 +184,7 @@ const labelsPersonalizados = {
   "people.urbanization.urban_population.value": "Población urbana",
   "geography.elevation.highest_point.elevation.value": "Elevación máxima",
   "geography.coastline.value": "Longitud de costas",
+  "people.sanitation_facility_access.improved.urban.value": "Porcentaje de acceso a saneamiento urbano",
   "people.literacy.total_population.value": "Tasa de alfabetización",
   "people.infant_mortality_rate.total.value": "Mortalidad infantil",
   "government.capital.geographic_coordinates.latitude.degrees": "Latitud de la capital",
