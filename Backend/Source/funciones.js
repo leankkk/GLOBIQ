@@ -632,6 +632,22 @@ export async function crearRecords() {
   const col = await coleccionCuentas();
   const todasLasCuentas = await col.find({}).toArray();
   if (todasLasCuentas.length === 0) return { records: {} };
+  const recordsIgnorados = [
+    { modo: "diario", nombre: "puntaje", usuario: "SIXSEVEN", valor: 1000 },
+    { modo: "bloques", nombre: "puntaje", usuario: "texahpro", valor: 1000 }
+  ];
+  const cuentaJusto = todasLasCuentas.find(cuenta => String(cuenta.nombre).toLowerCase() === "justo");
+  if (cuentaJusto) {
+    cuentaJusto.stats ??= {};
+    cuentaJusto.stats.mayormenor ??= {};
+    cuentaJusto.stats.mayormenor.racha = 20;
+  }
+  const coincideRecord = (record, modoActual, nombre, usuario, valor) => {
+    return record.modo === modoActual &&
+      record.nombre === nombre &&
+      record.usuario.toLowerCase() === String(usuario).toLowerCase() &&
+      record.valor === valor;
+  };
   let modo = ["diario", "mayormenor", "bloques"];
   let records = {};
   let keys = {};
@@ -647,6 +663,7 @@ export async function crearRecords() {
         let nombrecuenta = todasLasCuentas[i].nombre;
         let valor = todasLasCuentas[i].stats[modo[a]][keys[modo[a]][c]];
         if (Array.isArray(valor)) { catapta = false; break; }
+        if (recordsIgnorados.some(record => coincideRecord(record, modo[a], nombrecat, nombrecuenta, valor))) continue;
         if (valor > valormax && nombrecuenta !== "Sin usuario") { valormax = valor; holder = nombrecuenta; }
       }
       if (!catapta || valormax === 0) continue;
