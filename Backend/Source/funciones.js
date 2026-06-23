@@ -44,9 +44,111 @@ export function truedatorandom(){
 
 
 export function paisrandom() {
-    let numero = Math.round(Math.random() * listapaises.length);
+    let numero = Math.floor(Math.random() * listapaises.length);
     return listapaises[numero];
     }
+
+function mezclarLista(lista) {
+    return [...lista].sort(() => Math.random() - 0.5);
+}
+
+function tieneDatoNumerico(pais, dato) {
+    return typeof traer(pais, dato) === "number";
+}
+
+function categoriasDelModo(modo) {
+    if (modo === "facil") return categoriasFaciles;
+    if (modo === "medio") return categoriasMedias;
+    return listadatosB;
+}
+
+function categoriaValidaParaPais(modo, pais, datoAEvitar) {
+    const categorias = mezclarLista(categoriasDelModo(modo));
+
+    for (let i = 0; i < categorias.length; i++) {
+        const dato = categorias[i];
+        if (dato === datoAEvitar) continue;
+        if (!tieneDatoNumerico(pais, dato)) continue;
+        if (paisesConDato(dato, pais).length > 0) return dato;
+    }
+
+    return undefined;
+}
+
+function categoriaValidaParaPaises(modo, pais1, pais2, datoAEvitar) {
+    const categorias = mezclarLista(categoriasDelModo(modo));
+
+    for (let i = 0; i < categorias.length; i++) {
+        const dato = categorias[i];
+        if (dato === datoAEvitar) continue;
+        if (tieneDatoNumerico(pais1, dato) && tieneDatoNumerico(pais2, dato)) return dato;
+    }
+
+    return undefined;
+}
+
+function paisesConDato(dato, paisAExcluir) {
+    return listapaises.filter((pais) => {
+        return pais !== paisAExcluir && tieneDatoNumerico(pais, dato);
+    });
+}
+
+function paisAleatorioConDato(dato, paisAExcluir) {
+    const candidatos = paisesConDato(dato, paisAExcluir);
+    if (candidatos.length === 0) return undefined;
+    return candidatos[Math.floor(Math.random() * candidatos.length)];
+}
+
+function paisAleatorioParaCategoria(dato) {
+    return paisAleatorioConDato(dato);
+}
+
+function crearRondaMayorMenor({ modo, paisInicial, dato, cambiarDato = false, timer = 0 }) {
+    let paisBase = paisInicial;
+    let categoria = dato;
+
+    if (!paisBase || !data[paisBase]) paisBase = paisrandom();
+
+    if (cambiarDato || !categoria || !tieneDatoNumerico(paisBase, categoria) || paisesConDato(categoria, paisBase).length === 0) {
+        categoria = categoriaValidaParaPais(modo, paisBase, cambiarDato ? categoria : undefined);
+    }
+
+    if (!categoria) {
+        for (let i = 0; i < 80; i++) {
+            paisBase = paisrandom();
+            categoria = categoriaValidaParaPais(modo, paisBase);
+            if (categoria) break;
+        }
+    }
+
+    if (!categoria) return undefined;
+
+    let pais2 = paisAleatorioConDato(categoria, paisBase);
+
+    if (!pais2) {
+        paisBase = paisAleatorioParaCategoria(categoria);
+        pais2 = paisAleatorioConDato(categoria, paisBase);
+    }
+
+    if (!paisBase || !pais2 || paisBase === pais2) return undefined;
+
+    const valorInicial = traer(paisBase, categoria);
+
+    return {
+        paisInicial: paisBase,
+        labelpaisInicial: traerlabelpais(paisBase),
+        idPaisInicial: traerlabelCodigoPais(paisBase),
+        pais2: pais2,
+        labelpais2: traerlabelpais(pais2),
+        idPais2: traerlabelCodigoPais(pais2),
+        dato: categoria,
+        valorInicial: valorInicial,
+        labelvalorInicial: traerlabelvalor(valorInicial),
+        label: traerlabel(categoria),
+        timer: timer,
+        modo: modo
+    };
+}
    
    
 export function paisdiario() {
@@ -138,7 +240,7 @@ export function traer(pais, dato, label) {
     let actual = data[pais];
     
     for (let i = 0; i < dato.length; i++) {
-      if (actual === undefined) break;
+      if (actual === undefined || actual === null) break;
       actual = actual[dato[i]];
     }
   
@@ -242,46 +344,14 @@ return resultado;
 
 
 
-export function iniciarMayorMenor(data){
-let timer = 0;
-
-let paisInicial;
-if (data.paisInicial === undefined) paisInicial = paisrandom();
-else paisInicial = data.paisInicial;
-
-  let pais2 = paisInicial;
-    while (pais2 === paisInicial){
-    pais2 = paisrandom();
-    }    
+export function iniciarMayorMenor(data = {}){
 let modo = data.modo ?? "dificil";
-let dato = datorandompormodo(modo);
-let intentos = 0;
-while ((traer(paisInicial, dato) === undefined || typeof traer(paisInicial, dato) !== "number") && intentos < 10) {
-    dato = datorandompormodo(modo);
-    intentos++;
-}
-if (typeof traer(paisInicial, dato) !== "number") dato = datorandomnum();
-let valorInicial = traer(paisInicial, dato);
-
-
-if (data.timer === undefined) timer = 0;
-else data.timer += 1;
-
-
-return {
-    paisInicial: paisInicial, 
-    labelpaisInicial: traerlabelpais(paisInicial),
-    idPaisInicial: traerlabelCodigoPais(paisInicial),
-    pais2: pais2, 
-    labelpais2: traerlabelpais(pais2),
-    idPais2: traerlabelCodigoPais(pais2),
-    dato: dato,
-    valorInicial: valorInicial,
-    labelvalorInicial: traerlabelvalor(valorInicial),
-    label: traerlabel(dato),
-    timer: timer,
-    modo: modo
-};
+let timer = data.timer === undefined ? 0 : data.timer;
+return crearRondaMayorMenor({
+    modo: modo,
+    paisInicial: data.paisInicial,
+    timer: timer
+});
 }  
 
 
@@ -316,12 +386,11 @@ return {paisInicial: paisInicial, labelpaisInicial: traerlabelpais(paisInicial),
 
 
 
-export function compararMayorMenor(data){
+export function compararMayorMenor(data = {}){
 //definir rapido las variables
 let timer = data.timer;
 if (data.timer === undefined || data.timer === null) timer = 0;
 let victoria;
-let valorInicial = data.valorInicial;
 let paisInicial = data.paisInicial;
 //let labelpaisInicial = data.labelpaisInicial;
 let pais2 = data.pais2;
@@ -330,6 +399,12 @@ let dato = data.dato;
 let input = data.input; //si el pais derecho es mayor deberia ser positivo, si menor negativo
 let modo = data.modo ?? "dificil";
 
+let valorInicial = traer(paisInicial, dato);
+let valorPais2 = traer(pais2, dato);
+
+if (!paisInicial || !pais2 || paisInicial === pais2 || typeof valorInicial !== "number" || typeof valorPais2 !== "number") {
+    return iniciarMayorMenor({ modo: modo, timer: timer });
+}
 
 
 //comparación entre los dos paises
@@ -338,18 +413,18 @@ victoria = (input === comparar(paisInicial,pais2,dato));
 if (victoria === true) {
 paisInicial = pais2;
 timer++;
-if (timer % 5 === 0) dato = datorandompormodo(modo);
-
-valorInicial = traer(paisInicial, dato);
-if (valorInicial === undefined) {
-  paisInicial = paisrandom();
-  valorInicial = traer(paisInicial, dato);
+let ronda = crearRondaMayorMenor({
+    modo: modo,
+    paisInicial: paisInicial,
+    dato: dato,
+    cambiarDato: timer % 5 === 0,
+    timer: timer
+});
+if (!ronda) return iniciarMayorMenor({ modo: modo, timer: timer });
+ronda.victoria = victoria;
+return ronda;
 }
-
-for (pais2 = paisInicial; pais2 === paisInicial; pais2 = paisrandom());
-return {victoria:victoria, timer: timer, paisInicial: paisInicial, idPaisInicial: traerlabelCodigoPais(paisInicial), labelpaisInicial: traerlabelpais(paisInicial),valorInicial: valorInicial, labelvalorInicial: traerlabelvalor(valorInicial), pais2: pais2, labelpais2: traerlabelpais(pais2), idPais2: traerlabelCodigoPais(pais2), dato: dato, label: traerlabel(dato), modo: modo}
-}
-else return {victoria: victoria, timer: timer, valorPais2: traer(pais2,dato)}
+else return {victoria: victoria, timer: timer, valorPais2: traerlabelvalor(valorPais2)}
 }
 
 export function iniciarBloques(){
@@ -512,22 +587,39 @@ export async function enviarStats(data) {
   const cuenta = await col.findOne({ nombre: data.nombre });
   return cuenta;
 }
-export function cambiarCategoria(data){
+export function cambiarCategoria(data = {}){
 let modo = data.modo ?? "dificil";
-let categoriaAEvitar = data.dato;
-let categoriaNueva = categoriaAEvitar;
-while (categoriaNueva === categoriaAEvitar){
-categoriaNueva = datorandompormodo(modo);
+let paisInicial = data.paisInicial;
+let pais2 = data.pais2;
+let timer = data.timer ?? 0;
+let dato = categoriaValidaParaPaises(modo, paisInicial, pais2, data.dato);
+
+if (dato && paisInicial !== pais2) {
+  let valorInicial = traer(paisInicial, dato);
+  return {
+    paisInicial: paisInicial,
+    labelpaisInicial: traerlabelpais(paisInicial),
+    idPaisInicial: traerlabelCodigoPais(paisInicial),
+    pais2: pais2,
+    labelpais2: traerlabelpais(pais2),
+    idPais2: traerlabelCodigoPais(pais2),
+    dato: dato,
+    valorInicial: valorInicial,
+    labelvalorInicial: traerlabelvalor(valorInicial),
+    label: traerlabel(dato),
+    timer: timer,
+    modo: modo
+  };
 }
-data.dato = categoriaNueva;
-data.label = traerlabel(categoriaNueva);
-data.valorInicial = traer(data.paisInicial,categoriaNueva);
-data.labelvalorInicial = traerlabelvalor(data.valorInicial);
-data.idPaisInicial = traerlabelCodigoPais(data.paisInicial);
-data.idPais2 = traerlabelCodigoPais(data.pais2);
-data.labelpais2 = traerlabelpais(data.pais2);
-data.modo = modo;
-return data;
+
+let ronda = crearRondaMayorMenor({
+  modo: modo,
+  paisInicial: paisInicial,
+  dato: data.dato,
+  cambiarDato: true,
+  timer: timer
+});
+return ronda ?? iniciarMayorMenor({ modo: modo, timer: timer });
 }
 export async function crearRecords() {
   const col = await coleccionCuentas();
