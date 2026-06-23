@@ -634,7 +634,8 @@ export async function crearRecords() {
   if (todasLasCuentas.length === 0) return { records: {} };
   const recordsIgnorados = [
     { modo: "diario", nombre: "puntaje", usuario: "SIXSEVEN", valor: 1000 },
-    { modo: "bloques", nombre: "puntaje", usuario: "texahpro", valor: 1000 }
+    { modo: "bloques", nombre: "puntaje", usuario: "texahpro", valor: 1000 },
+    { modo: "bloques", nombre: "puntaje", usuario: "tehaxpro", valor: 1000 }
   ];
   const cuentaJusto = todasLasCuentas.find(cuenta => String(cuenta.nombre).toLowerCase() === "justo");
   if (cuentaJusto) {
@@ -646,7 +647,7 @@ export async function crearRecords() {
     return record.modo === modoActual &&
       record.nombre === nombre &&
       record.usuario.toLowerCase() === String(usuario).toLowerCase() &&
-      record.valor === valor;
+      record.valor === Number(valor);
   };
   let modo = ["diario", "mayormenor", "bloques"];
   let records = {};
