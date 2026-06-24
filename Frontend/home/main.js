@@ -10,7 +10,17 @@ let bienvenidaBanner = document.getElementById("bienvenidaBanner");
 let bienvenidaTexto = document.getElementById("bienvenidaTexto");
 let cerrarBienvenida = document.getElementById("cerrarBienvenida");
 
-cuentaTooltip.textContent = usuario || "Ver cuenta";
+function hayUsuarioLogueado() {
+  return Boolean(usuario && usuario !== "Sin usuario");
+}
+
+function rutaCuentaSegunSesion() {
+  return hayUsuarioLogueado()
+    ? "../cuenta/index.html"
+    : "../pantalla 6 (login)/index.html";
+}
+
+cuentaTooltip.textContent = hayUsuarioLogueado() ? usuario : "Iniciar sesión";
 
 function ocultarBienvenida() {
   bienvenidaBanner.classList.remove("visible");
@@ -27,7 +37,7 @@ cerrarBienvenida.addEventListener("click", ocultarBienvenida);
 
 
 cuentaBtn.addEventListener("click", () => {
-  window.location.href = "../cuenta/index.html";
+  window.location.href = rutaCuentaSegunSesion();
 });
 
 

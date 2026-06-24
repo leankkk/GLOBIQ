@@ -5,6 +5,12 @@ function hayUsuarioLogueado() {
   return Boolean(usuario && usuario !== "Sin usuario");
 }
 
+function rutaCuentaSegunSesion() {
+  return hayUsuarioLogueado()
+    ? "../cuenta/index.html"
+    : "../pantalla 6 (login)/index.html";
+}
+
 function mostrarAvisoSinSesion() {
   if (hayUsuarioLogueado()) return;
 
@@ -400,5 +406,5 @@ document.getElementById("btnInicioRendirse").addEventListener("click", () => {
 });
 
 cuentaBtn.addEventListener("click", () => {
-  window.location.href = "../cuenta/index.html";
+  window.location.href = rutaCuentaSegunSesion();
 });

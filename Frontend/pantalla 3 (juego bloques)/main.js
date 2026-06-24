@@ -19,6 +19,7 @@ let paisobjetivo;
 let listadescartados;
 let listaposibles;
 let usuario = sessionStorage.getItem("usuario") ?? "Sin usuario";
+let cuentaBtn = document.getElementById("cuentaBtn");
 let campoAdivinarPais = document.getElementById("inputAdivinarPais");
 let btnAdivinarPais = document.getElementById("btnAdivinarPais");
 let ayudaBtn = document.getElementById("ayudaBtn");
@@ -30,6 +31,20 @@ let valoresPreguntados = [];
 
 function hayUsuarioLogueado() {
   return Boolean(usuario && usuario !== "Sin usuario");
+}
+
+function rutaCuentaSegunSesion() {
+  return hayUsuarioLogueado()
+    ? "../cuenta/index.html"
+    : "../pantalla 6 (login)/index.html";
+}
+
+function normalizarTexto(texto) {
+  return String(texto ?? "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
 }
 
 function mostrarAvisoSinSesion() {
@@ -411,6 +426,31 @@ function actualizarMapa(posibles, descartados) {
   });
 }
 
+function paisCoincideConTexto(pais, textoNormalizado) {
+  return normalizarTexto(pais.label) === textoNormalizado ||
+    normalizarTexto(pais.pais) === textoNormalizado;
+}
+
+function descartarPaisIntentado(texto) {
+  if (!Array.isArray(listaposibles) || !Array.isArray(listadescartados)) return;
+
+  const textoNormalizado = normalizarTexto(texto);
+  const indicePais = listaposibles.findIndex((pais) =>
+    paisCoincideConTexto(pais, textoNormalizado)
+  );
+
+  if (indicePais === -1) return;
+
+  const [paisDescartado] = listaposibles.splice(indicePais, 1);
+
+  if (!listadescartados.some((pais) => pais.pais === paisDescartado.pais)) {
+    listadescartados.push(paisDescartado);
+  }
+
+  actualizarListasFront(listaposibles, listadescartados);
+  actualizarMapa(listaposibles, listadescartados);
+}
+
 
 // Función para mostrar popup de error
 function mostrarError(mensaje) {
@@ -448,7 +488,7 @@ btnAdivinarPais.addEventListener("click", () => {
   }
 
   // Comparar con el país objetivo
-  if (inputPais.toLowerCase() === labelPaisObjetivo.toLowerCase()) {
+  if (normalizarTexto(inputPais) === normalizarTexto(labelPaisObjetivo)) {
     intentosDeAdivinar++;
     mostrarPopUp(intentosPreguntas,intentosDeAdivinar);
     enviarstats();
@@ -456,6 +496,7 @@ btnAdivinarPais.addEventListener("click", () => {
     document.getElementById("btnAdivinar").disabled = true;
   } else {
     intentosDeAdivinar++;
+    descartarPaisIntentado(inputPais);
     if (intentosDeAdivinar !== 3) {
       mostrarError(`Incorrecto. Te quedan ${3-intentosDeAdivinar} intento${3-intentosDeAdivinar === 1 ? "" : "s"}.`);
     } else {
@@ -465,6 +506,14 @@ btnAdivinarPais.addEventListener("click", () => {
     }
   }
 });
+
+if (cuentaBtn) {
+  cuentaBtn.setAttribute("href", rutaCuentaSegunSesion());
+  cuentaBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    window.location.href = rutaCuentaSegunSesion();
+  });
+}
 
 campoAdivinarPais.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
