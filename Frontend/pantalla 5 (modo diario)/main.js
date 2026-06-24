@@ -17,8 +17,10 @@ let respuestaRendirse = document.getElementById("respuestaRendirse");
 
 let intentosHechos = 0;
 let intentosFallidos = [];
-let paisDiario;
+let paisDiario = "";
+let paisDiarioCodigo = "";
 let intentos = 0;
+let paisDiarioCargado = false;
 
 function hayUsuarioLogueado() {
   return Boolean(usuario && usuario !== "Sin usuario");
@@ -106,11 +108,19 @@ function getStats(data) {
 
 function guardarStats() {}
 
-function establecerPaisDiario(data) {
-  paisDiario = data.label;
+function establecerPaisDiario(data = {}) {
+  paisDiario = typeof data.label === "string" ? data.label : "";
+  paisDiarioCodigo = typeof data.pais === "string" ? data.pais : "";
+  paisDiarioCargado = Boolean(paisDiario && paisDiarioCodigo);
+  boton.disabled = !paisDiarioCargado;
 }
 
 function mostrarPista(data) {
+  if (!data || data.label === undefined || data.valor === undefined) {
+    console.error("No se pudo cargar una pista valida", data);
+    return;
+  }
+
   let nuevaPista = document.createElement('div');
 
   nuevaPista.classList.add('pista-item');
@@ -130,11 +140,12 @@ function mostrarPista(data) {
   }, 50);
 }
 
-// Al cargar la página, traemos el país diario y la primera pista
+// Al cargar la página, traemos el país diario antes de permitir adivinar.
+boton.disabled = true;
 getEvent("obtenerPaisDiario", establecerPaisDiario);
 
 function normalizarTexto(texto) {
-  return texto
+  return String(texto ?? "")
     .trim()
     .toLowerCase()
     .normalize("NFD")
@@ -142,17 +153,24 @@ function normalizarTexto(texto) {
 }
 
 function formatearPais(texto) {
-  texto = texto.trim().toLowerCase();
+  texto = String(texto ?? "").trim().toLowerCase();
   return texto.charAt(0).toUpperCase() + texto.slice(1);
 }
 
-boton.addEventListener('click', () => {
+boton.addEventListener('click', async () => {
 
   let respuestaOriginal = input.value.trim();
   let respuesta = normalizarTexto(respuestaOriginal);
   let paisCorrecto = normalizarTexto(paisDiario);
 
   if (respuesta === "") return;
+
+  if (!paisDiarioCargado || paisCorrecto === "") {
+    boton.disabled = true;
+    await getEvent("obtenerPaisDiario", establecerPaisDiario);
+    paisCorrecto = normalizarTexto(paisDiario);
+    if (!paisDiarioCargado || paisCorrecto === "") return;
+  }
 
   intentosHechos++;
 
@@ -174,7 +192,7 @@ let puntaje = Math.round(1000 / Math.max(intentos, 1));
 
   } else {
 
-    postEvent("obtenerPista", {}, mostrarPista);
+    postEvent("obtenerPista", { pais: paisDiarioCodigo }, mostrarPista);
 
     intentosFallidos.push(
       formatearPais(respuestaOriginal)

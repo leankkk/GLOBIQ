@@ -314,40 +314,37 @@ export function comparar(pais1,pais2,dato){
     }
 }
 
-export function elegirpista(data){
-    console.log(data)
-    let pais = data.pais;
+export function elegirpista(data = {}){
+    if (!data || typeof data !== "object") data = {};
+    const pais = typeof data.pais === "string" && data.pais !== "" ? data.pais : paisdiario();
     let dato = data.dato;
-    let valor;
-    let resultado = undefined;
-    if (data.dato === undefined){
-        dato = datorandom();
-    }
-    if (data.pais === undefined){
-        pais = paisdiario();
-    }
-    console.log("1er paso hecho")
 
-/*for (let i = 0; i < quemados.length; i++){    
-if (quemados[i].dato === dato){
-dato = datorandom();
-i = 0;
-}
-}*/
-for (let i = 0; i < listadatosB.length; i++){
-    console.log(i);
-    valor = traer(pais,dato);
-    console.log(valor)
-    if (typeof valor === "number"){
-    if (valor === true) valor = "Verdadero";
-    if (valor === false) valor = "Falso";
-        resultado = {valor:valor,label:traerlabel(dato),pais:pais,labelpais:traerlabelpais(pais),dato:dato};
-    break;
-} 
-else {console.log(dato); dato = datorandom();}
-}
-console.log(resultado)
-return resultado;
+    for (let i = 0; i < listadatosB.length; i++){
+        if (!dato) dato = datorandomnum();
+
+        const valor = traer(pais, dato);
+        const label = traerlabel(dato);
+
+        if (Number.isFinite(valor) && label) {
+            return {
+                valor: traerlabelvalor(valor),
+                label: label,
+                pais: pais,
+                labelpais: traerlabelpais(pais),
+                dato: dato
+            };
+        }
+
+        dato = undefined;
+    }
+
+    return {
+        valor: "Sin datos disponibles",
+        label: "Pista",
+        pais: pais,
+        labelpais: traerlabelpais(pais),
+        dato: null
+    };
 }
 
 
