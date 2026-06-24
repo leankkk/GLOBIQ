@@ -158,18 +158,28 @@ function crearRondaMayorMenor({ modo, paisInicial, dato, cambiarDato = false, ti
 }
    
    
+function indicePaisDiario() {
+    let diferencia = (new Date) - (new Date("2025-01-01"));
+    diferencia = Math.floor(diferencia / 86400000);
+
+    const indiceDia = diferencia % listadias.length;
+    const indiceConfigurado = listadias[indiceDia];
+    const indicePais = indiceConfigurado - 1;
+
+    if (Number.isInteger(indicePais) && listapaises[indicePais] !== undefined) {
+        return indicePais;
+    }
+
+    return diferencia % listapaises.length;
+}
+
 export function paisdiario() {
-   let diferencia = (new Date) - (new Date("2025-01-01"));
-   diferencia = Math.floor(diferencia / 86400000);
-   diferencia = diferencia % listapaises.length;
-   return listapaises[listadias[diferencia]];  
+   return listapaises[indicePaisDiario()];  
    }
 
 export function paisdiariofront() {
-    let diferencia = (new Date) - (new Date("2025-01-01"));
-    diferencia = Math.floor(diferencia / 86400000);
-    diferencia = diferencia % listapaises.length;
-    return {pais:listapaises[listadias[diferencia]],label:listalabelsPaises[listadias[diferencia]]};  
+    const indicePais = indicePaisDiario();
+    return {pais:listapaises[indicePais],label:listalabelsPaises[indicePais]};  
     }
  
 
